@@ -1,0 +1,90 @@
+/* Custom CSS for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.nav-link {
+    color: #1f2937;
+    /* A darker gray for better readability */
+}
+
+.nav-link:hover {
+    color: #10b981;
+    /* Green from logo */
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    /* 16px */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1.5rem;
+    /* 24px */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.btn-3d {
+    transition: all 0.15s ease-out;
+    box-shadow: 0 4px 0 #1d4ed8;
+    /* Darker blue shadow */
+}
+
+.btn-3d:hover {
+    box-shadow: 0 4px 0 #047857;
+    /* Darker green shadow on hover */
+}
+
+.btn-3d:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #047857;
+}
