@@ -69,6 +69,7 @@ p {
 /* Buttons */
 .btn-primary, .btn-secondary, .btn-outline, .btn-white {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     padding: 12px 24px;
