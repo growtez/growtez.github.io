@@ -1,248 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growtez - Software & IoT Solutions Provider</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Custom CSS for animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .service-card {
-            transition: all 0.3s ease;
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        .nav-link {
-            color: #1f2937;
-            /* A darker gray for better readability */
-        }
-
-        .nav-link:hover {
-            color: #10b981;
-            /* Green from logo */
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            /* 16px */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 1.5rem;
-            /* 24px */
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        .btn-3d {
-            transition: all 0.15s ease-out;
-            box-shadow: 0 4px 0 #1d4ed8;
-            /* Darker blue shadow */
-        }
-
-        .btn-3d:hover {
-            box-shadow: 0 4px 0 #047857;
-            /* Darker green shadow on hover */
-        }
-
-        .btn-3d:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #047857;
-        }
-    </style>
+    <title>Our Services - DevCraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<body class="font-sans bg-gray-100">
-    <!-- Navigation -->
-    <nav class="glass-nav sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold gradient-text">Growtez</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="./index.html" class="nav-link font-bold transition">Home</a>
-                    <a href="#services"
-                        class="nav-link font-bold text-[#10b981] underline underline-offset-4">Services</a>
-                    <a href="#about" class="nav-link font-bold transition">About</a>
-                    <a href="#portfolio" class="nav-link font-bold transition">Portfolio</a>
-                    <a href="#contact" class="nav-link font-bold transition">Contact</a>
-                    <a href="#contact"
-                        class="btn-3d bg-[#3b82f6] text-white px-4 py-2 rounded-md hover:bg-[#10b981] transition">Get
-                        Started</a>
-                </div>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>DevCraft</span>
             </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About us</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact us</a></li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Get Quote</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="./index.html" class="block py-2 nav-link font-bold transition">Home</a>
-                <a href="#services" class="nav-link font-bold text-[#10b981] underline underline-offset-4">Services</a>
-                <a href="#about" class="block py-2 nav-link font-bold transition">About</a>
-                <a href="#portfolio" class="block py-2 nav-link font-bold transition">Portfolio</a>
-                <a href="#contact" class="block py-2 nav-link font-bold transition">Contact</a>
-                <a href="#contact"
-                    class="btn-3d block mt-2 bg-[#3b82f6] text-white px-4 py-2 rounded-md hover:bg-[#10b981] transition text-center">Get
-                    Started</a>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our <span class="highlight">Services</span></h1>
+            <p>Comprehensive digital solutions to accelerate your business growth</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Services</span>
             </div>
         </div>
-    </nav>
+    </section>
 
-
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our <span
-                        class="gradient-text">Services</span></h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Comprehensive solutions tailored to your business needs. We're your one-stop shop for digital
-                    transformation.
-                </p>
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="services-intro">
+                <h2>What We <span class="highlight">Offer</span></h2>
+                <p>We provide end-to-end digital solutions that help businesses transform their ideas into powerful digital experiences. From initial concept to final deployment and ongoing support, we're your trusted technology partner.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-card service-card fade-in delay-1">
-                    <div class="w-24 h-24 mb-6">
-                        <img src="./image/custom-development.png" alt="Custom Software Icon">
+            
+            <div class="services-grid">
+                <div class="service-card featured" id="web-dev">
+                    <div class="service-icon yellow">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Custom Software Development</h3>
-                    <p class="text-gray-600 mb-4">
-                        Tailored software solutions designed to streamline your operations, enhance productivity, and
-                        drive growth.
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Web Applications
-                        </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mobile Apps</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Enterprise
-                            Solutions</li>
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies and best practices.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Performance Optimization</li>
+                        <li><i class="fas fa-check"></i> SEO-Friendly</li>
+                        <li><i class="fas fa-check"></i> Cross-browser Compatible</li>
                     </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PHP</span>
+                    </div>
+                    <a href="#web-development-details" class="btn-outline">Learn More</a>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="glass-card service-card fade-in delay-2">
-                    <div class="w-24 h-24 mb-6">
-                        <img src="./image/iot-solutions.png" alt="Custom Software Icon">
+                
+                <div class="service-card featured" id="app-dev">
+                    <div class="service-icon green">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">IoT Solutions</h3>
-                    <p class="text-gray-600 mb-4">
-                        Innovative Internet of Things solutions that connect your business to the future of smart
-                        technology.
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Smart Devices
-                        </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Sensor Networks
-                        </li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Data Analytics
-                        </li>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android devices.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Native iOS & Android</li>
+                        <li><i class="fas fa-check"></i> Cross-platform Solutions</li>
+                        <li><i class="fas fa-check"></i> App Store Deployment</li>
+                        <li><i class="fas fa-check"></i> Ongoing Maintenance</li>
                     </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">Kotlin</span>
+                    </div>
+                    <a href="#app-development-details" class="btn-outline">Learn More</a>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card service-card fade-in delay-3">
-                  <div class="w-24 h-24 mb-6">
-                        <img src="./image/consultancy.png" alt="Custom Software Icon">
+                
+                <div class="service-card featured" id="design">
+                    <div class="service-icon purple">
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Consultancy</h3>
-                    <p class="text-gray-600 mb-4">
-                        Strategic guidance to help you navigate digital transformation and maximize your technology
-                        investments.
-                    </p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Technology
-                            Strategy</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Process
-                            Optimization</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Digital
-                            Roadmapping</li>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered design solutions that create engaging and intuitive digital experiences.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> User Research</li>
+                        <li><i class="fas fa-check"></i> Wireframing & Prototyping</li>
+                        <li><i class="fas fa-check"></i> Visual Design</li>
+                        <li><i class="fas fa-check"></i> Usability Testing</li>
                     </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Sketch</span>
+                        <span class="tech-tag">Adobe XD</span>
+                        <span class="tech-tag">Principle</span>
+                    </div>
+                    <a href="#design-details" class="btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon red">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Comprehensive digital marketing strategies to boost your online presence and drive growth.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> SEO & SEM</li>
+                        <li><i class="fas fa-check"></i> Social Media Marketing</li>
+                        <li><i class="fas fa-check"></i> Content Strategy</li>
+                        <li><i class="fas fa-check"></i> Analytics & Reporting</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Google Ads</span>
+                        <span class="tech-tag">Facebook Ads</span>
+                        <span class="tech-tag">Analytics</span>
+                        <span class="tech-tag">HubSpot</span>
+                    </div>
+                    <a href="#marketing-details" class="btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure and deployment solutions for modern applications.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cloud Migration</li>
+                        <li><i class="fas fa-check"></i> DevOps & CI/CD</li>
+                        <li><i class="fas fa-check"></i> Infrastructure as Code</li>
+                        <li><i class="fas fa-check"></i> Monitoring & Support</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                    </div>
+                    <a href="#cloud-details" class="btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon orange">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Consulting & Strategy</h3>
+                    <p>Technology consulting and strategic planning to align your digital initiatives with business goals.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Technology Assessment</li>
+                        <li><i class="fas fa-check"></i> Digital Transformation</li>
+                        <li><i class="fas fa-check"></i> Architecture Planning</li>
+                        <li><i class="fas fa-check"></i> Team Augmentation</li>
+                    </ul>
+                    <div class="service-technologies">
+                        <span class="tech-tag">Strategy</span>
+                        <span class="tech-tag">Analysis</span>
+                        <span class="tech-tag">Planning</span>
+                        <span class="tech-tag">Execution</span>
+                    </div>
+                    <a href="#consulting-details" class="btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Service Details Sections -->
+    <section class="service-details" id="web-development-details">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <h2>Web Development</h2>
+                    <p class="lead">We create powerful, scalable web applications that drive business growth and deliver exceptional user experiences.</p>
+                    
+                    <h4>Our Web Development Services Include:</h4>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h5>Custom Web Applications</h5>
+                                <p>Tailored solutions built to meet your specific business requirements</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <h5>E-commerce Platforms</h5>
+                                <p>Robust online stores with secure payment processing and inventory management</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <h5>CMS Development</h5>
+                                <p>Custom content management systems for easy content updates and management</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <h5>API Integration</h5>
+                                <p>Seamless integration with third-party services and existing systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h4>Starting from $5,000</h4>
+                        <p>Custom pricing based on project complexity and requirements</p>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <a href="contact.html" class="btn-primary">Get Quote</a>
+                        <a href="portfolio.html" class="btn-secondary">View Examples</a>
+                    </div>
+                </div>
+                <div class="service-detail-visual">
+                    <div class="service-illustration">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="code-lines">
+                            <div class="code-line"></div>
+                            <div class="code-line"></div>
+                            <div class="code-line"></div>
+                            <div class="code-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-details alt" id="app-development-details">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-visual">
+                    <div class="service-illustration">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div class="mobile-screens">
+                            <div class="screen screen-1"></div>
+                            <div class="screen screen-2"></div>
+                            <div class="screen screen-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-detail-text">
+                    <h2>Mobile App Development</h2>
+                    <p class="lead">Native and cross-platform mobile applications that provide seamless user experiences across all devices.</p>
+                    
+                    <h4>What We Deliver:</h4>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                                <h5>iOS Applications</h5>
+                                <p>Native iOS apps optimized for iPhone and iPad using Swift and Objective-C</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fab fa-android"></i>
+                            <div>
+                                <h5>Android Applications</h5>
+                                <p>High-performance Android apps using Kotlin and Java for all Android devices</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-code-branch"></i>
+                            <div>
+                                <h5>Cross-Platform Apps</h5>
+                                <p>Cost-effective solutions using Flutter and React Native for multiple platforms</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <div>
+                                <h5>App Store Deployment</h5>
+                                <p>Complete assistance with app store submissions and approval process</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h4>Starting from $8,000</h4>
+                        <p>Pricing varies based on features, platforms, and complexity</p>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <a href="contact.html" class="btn-primary">Get Quote</a>
+                        <a href="portfolio.html" class="btn-secondary">View Apps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="development-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Development <span class="highlight">Process</span></h2>
+                <p>A proven methodology that ensures successful project delivery</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Discovery</h4>
+                    <p>Understanding your business goals, target audience, and technical requirements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h4>Planning</h4>
+                    <p>Creating detailed project plans, wireframes, and technical specifications</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Design</h4>
+                    <p>Crafting beautiful, user-friendly interfaces and engaging user experiences</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Development</h4>
+                    <p>Building robust, scalable solutions using modern technologies and best practices</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h4>Testing</h4>
+                    <p>Comprehensive testing to ensure quality, performance, and reliability</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Launch</h4>
+                    <p>Deploying your solution and providing ongoing support and maintenance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technologies We <span class="highlight">Use</span></h2>
+                <p>We work with the latest and most reliable technologies</p>
+            </div>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-react"></i><span>React</span></div>
+                        <div class="tech-icon"><i class="fab fa-vue"></i><span>Vue.js</span></div>
+                        <div class="tech-icon"><i class="fab fa-angular"></i><span>Angular</span></div>
+                        <div class="tech-icon"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                        <div class="tech-icon"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                        <div class="tech-icon"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                        <div class="tech-icon"><i class="fab fa-python"></i><span>Python</span></div>
+                        <div class="tech-icon"><i class="fab fa-php"></i><span>PHP</span></div>
+                        <div class="tech-icon"><i class="fab fa-java"></i><span>Java</span></div>
+                        <div class="tech-icon"><i class="fas fa-gem"></i><span>Ruby</span></div>
+                        <div class="tech-icon"><i class="fas fa-database"></i><span>SQL</span></div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Mobile</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-react"></i><span>React Native</span></div>
+                        <div class="tech-icon"><i class="fas fa-mobile-alt"></i><span>Flutter</span></div>
+                        <div class="tech-icon"><i class="fab fa-apple"></i><span>Swift</span></div>
+                        <div class="tech-icon"><i class="fab fa-android"></i><span>Kotlin</span></div>
+                        <div class="tech-icon"><i class="fas fa-code"></i><span>Xamarin</span></div>
+                        <div class="tech-icon"><i class="fab fa-ionic"></i><span>Ionic</span></div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon"><i class="fab fa-aws"></i><span>AWS</span></div>
+                        <div class="tech-icon"><i class="fab fa-microsoft"></i><span>Azure</span></div>
+                        <div class="tech-icon"><i class="fab fa-google"></i><span>Google Cloud</span></div>
+                        <div class="tech-icon"><i class="fab fa-docker"></i><span>Docker</span></div>
+                        <div class="tech-icon"><i class="fas fa-dharmachakra"></i><span>Kubernetes</span></div>
+                        <div class="tech-icon"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's discuss how we can help bring your ideas to life</p>
+                <a href="contact.html" class="btn-white">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p class="mb-4">&copy; 2024 Growtez. All rights reserved.</p>
-            <div class="flex justify-center space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-github"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <i class="fas fa-code"></i>
+                        <span>DevCraft</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">App Development</a></li>
+                            <li><a href="services.html">UI/UX Design</a></li>
+                            <li><a href="services.html">Digital Marketing</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DevCraft. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            var mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
-
-    <div class="fade"></div>
+    <script src="script.js"></script>
 </body>
-
 </html>
