@@ -24,7 +24,7 @@
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact us</a></li>
             </ul>
-            <a href="contact.html" class="btn-primary">Get Quote</a>
+            <!-- <a href="contact.html" class="btn-primary">Get Quote</a> -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -287,10 +287,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="brand">
-                        <i class="fas fa-code"></i>
-                        <span>Growtez</span>
-                    </div>
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/logo.png" alt="Growtez Logo" class="logo-img">
+                    </a>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -552,18 +551,34 @@
             margin-bottom: 1rem;
             overflow: hidden;
         }
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* enough height for most answers */
+            padding: 0 1.2rem 1.2rem;
+
+        }
 
         .faq-question {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            padding: 1rem 1.2rem;
+            align-items: center;
             cursor: pointer;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
         }
 
         .faq-answer {
-            padding: 0 1.2rem 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg); /* chevron rotates when open */
         }
 
         @media (max-width: 992px) {
