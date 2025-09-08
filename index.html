@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Growtez - Software, App & Web Development</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <!-- Header -->
@@ -41,9 +43,9 @@
                     <p>Our team brings a blend of experience and innovation to every project, ensuring your digital presence stands out with cutting-edge technology and engaging campaigns.</p>
                     <div class="hero-buttons">
                         <a href="contact.html" class="btn-primary">Get Started</a>
-                        <a href="services.html" class="btn-secondary">
+                        <a href="portfolio.html" class="btn-secondary">
                             <i class="fas fa-play"></i>
-                            Explore More
+                            Portfolio
                         </a>
                     </div>
                 </div>
@@ -57,6 +59,7 @@
                 </div>
             </div>
         </div>
+        <!-- Background decorative elements -->
         <div class="hero-bg-elements">
             <div class="bg-circle bg-circle-1"></div>
             <div class="bg-circle bg-circle-2"></div>
@@ -64,210 +67,227 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- What We Do / Services Section (Rebuilt) -->
+    <section class="services-cards">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
         <div class="container">
-            <div class="section-header">
-                <h2>We Provide The Best <span class="highlight">Services</span></h2>
-                <p>With a passionate team and cutting-edge tools, we deliver exceptional digital solutions</p>
+            <div class="services-header">
+                <span class="section-label">WHAT WE DO?</span>
+                <h2>Design. Develop. Market. Grow.</h2>
+                <div class="header-underline"></div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon yellow">
-                        <i class="fas fa-laptop-code"></i>
+
+            <div class="swiper services-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="card-glow"></div>
+                            <div class="service-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div class="icon-bg"></div>
+                            </div>
+                            <h3>App Development</h3>
+                            <p>Custom mobile applications built for performance, scalability, and seamless user experience—whether iOS, Android, or cross-platform.</p>
+                            <div class="card-border"></div>
+                        </div>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Creating responsive and dynamic websites with modern frameworks and technologies</p>
+
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="card-glow"></div>
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                                <div class="icon-bg"></div>
+                            </div>
+                            <h3>Web Development</h3>
+                            <p>Responsive, secure, and fast-loading websites tailored to your brand and business goals, ensuring your online presence stands out.</p>
+                            <div class="card-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="card-glow"></div>
+                            <div class="service-icon">
+                                <i class="fas fa-palette"></i>
+                                <div class="icon-bg"></div>
+                            </div>
+                            <h3>UI/UX Design</h3>
+                            <p>Human-centered designs that blend creativity and usability to deliver engaging experiences your customers will love.</p>
+                            <div class="card-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="service-card">
+                            <div class="card-glow"></div>
+                            <div class="service-icon">
+                                <i class="fas fa-rocket"></i>
+                                <div class="icon-bg"></div>
+                            </div>
+                            <h3>Brand Promotion</h3>
+                            <p>Data-driven SEO, social media, and branding campaigns that increase visibility, attract customers, and drive measurable results.</p>
+                            <div class="card-border"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon green">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>App Development</h3>
-                    <p>Building native and cross-platform mobile applications for iOS and Android</p>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section class="strategy-section">
+        <div class="strategy-bg-pattern"></div>
+        <div class="container">
+            <div class="strategy-container">
+                <div class="strategy-content">
+                    <span class="section-label">OUR STRATEGY</span>
+                    <h2>3 steps we take<br>for our projects.</h2>
+                    <p>Our proven methodology ensures consistent quality and exceptional results for every client we serve.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon purple">
-                        <i class="fas fa-palette"></i>
+                <div class="strategy-steps">
+                    <div class="strategy-step">
+                        <div class="step-connector"></div>
+                        <div class="step-number">
+                            <span>01</span>
+                            <div class="number-glow"></div>
+                        </div>
+                        <div class="step-details">
+                            <h4>Collect Ideas</h4>
+                            <p>We gather requirements, understand your vision, and research market trends to create the perfect foundation.</p>
+                        </div>
                     </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Designing intuitive and engaging user interfaces that enhance user experience</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon red">
-                        <i class="fas fa-chart-bar"></i>
+                    <div class="strategy-step">
+                        <div class="step-connector"></div>
+                        <div class="step-number">
+                            <span>02</span>
+                            <div class="number-glow"></div>
+                        </div>
+                        <div class="step-details">
+                            <h4>Give Our Best</h4>
+                            <p>Our expert team implements cutting-edge solutions using the latest technologies and best practices.</p>
+                        </div>
                     </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategic online marketing campaigns to boost your brand's digital presence</p>
+                    <div class="strategy-step">
+                        <div class="step-connector"></div>
+                        <div class="step-number">
+                            <span>03</span>
+                            <div class="number-glow"></div>
+                        </div>
+                        <div class="step-details">
+                            <h4>Finalize Product</h4>
+                            <p>We thoroughly test, refine, and deliver a polished product that exceeds your expectations.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solutions Section -->
-    <section class="solutions">
+    <!-- Testimonials/Community Section -->
+    <section class="community-section">
         <div class="container">
-            <div class="solutions-content">
-                <div class="solutions-image">
-                    <div class="person-consulting">
-                        <i class="fas fa-user-tie"></i>
+            <div class="community-header">
+                <span class="section-label">OUR COMMUNITY</span>
+                <h2>See what customers are saying about us.</h2>
+                <p>Join thousands of satisfied clients who have transformed their businesses with our solutions.</p>
+            </div>
+            <div class="testimonials-wrapper">
+                <div class="testimonial-card glass-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
                     </div>
-                    <div class="consultation-steps">
-                        <div class="step">1</div>
-                        <div class="step">2</div>
-                        <div class="step">3</div>
-                        <div class="step">4</div>
+                    <p class="testimonial-quote">"DevCraft transformed our digital presence completely. Their attention to detail and innovative approach exceeded our expectations."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <strong>Coriss Ambady</strong>
+                            <span>Financial Analyst</span>
+                        </div>
                     </div>
+                    <div class="card-shimmer"></div>
                 </div>
-                <div class="solutions-text">
-                    <h2>Simple <span class="highlight">Solutions!</span></h2>
-                    <p>We understand that no two businesses are alike. That's why we take the time to understand your unique challenges and goals.</p>
-                    
-                    <div class="solution-steps">
-                        <div class="step-item">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Contact us</h4>
-                                <p>Reach out to discuss your project requirements</p>
-                            </div>
+                
+                <div class="testimonial-card glass-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-quote">"The mobile app they developed for us increased our user engagement by 300%. Truly exceptional work and professional service."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="step-item">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Consult</h4>
-                                <p>We analyze and plan the perfect solution</p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Place order</h4>
-                                <p>Confirm your project and get started</p>
-                            </div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Payment</h4>
-                                <p>Flexible payment options for your convenience</p>
-                            </div>
+                        <div class="author-info">
+                            <strong>Cory Zamora</strong>
+                            <span>Marketing Specialist</span>
                         </div>
                     </div>
-
-                    <div class="solution-buttons">
-                        <a href="contact.html" class="btn-primary">Get Started</a>
-                        <a href="about.html" class="btn-outline">Read more</a>
+                    <div class="card-shimmer"></div>
+                </div>
+                
+                <div class="testimonial-card glass-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
                     </div>
+                    <p class="testimonial-quote">"Outstanding UI/UX design that perfectly captures our brand identity. The team was responsive and delivered on time."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <strong>Barclay Widerski</strong>
+                            <span>Sales Specialist</span>
+                        </div>
+                    </div>
+                    <div class="card-shimmer"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Agency Section -->
-    <section class="agency">
+    <!-- Business Solutions Section -->
+    <section class="business-solutions">
+        <div class="solution-bg-gradient"></div>
         <div class="container">
-            <div class="agency-content">
-                <div class="agency-text">
-                    <h2>Our <span class="highlight">Agency</span></h2>
-                    <p>We believe in the power of data. Our analytics-driven approach allows us to make informed decisions and optimize your marketing efforts for maximum ROI. Let's turn your vision into reality.</p>
-                    <p>Position and optimize your marketing efforts for maximum growth. Let's create digital solutions for your business!</p>
-                    <a href="about.html" class="btn-primary">Learn more</a>
-                </div>
-                <div class="agency-image">
-                    <div class="analytics-dashboard">
-                        <i class="fas fa-chart-pie"></i>
-                        <div class="dashboard-elements">
-                            <div class="chart-element"></div>
-                            <div class="chart-element"></div>
-                            <div class="chart-element"></div>
+            <div class="business-solutions-container">
+                <div class="business-solutions-illustration">
+                    <div class="image-frame">
+                       
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What <span class="highlight">Clients</span> Say!</h2>
-                <p>See what our satisfied marketing clients have to say about our services</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="client-details">
-                                <h4>Sarah Johnson</h4>
-                                <p>CEO, TechStart Inc.</p>
-                            </div>
+                <div class="business-solutions-content">
+                    <h2>Grow Your Business<br>with Our <span class="gradient-text">Solutions</span>.</h2>
+                    <p>We help our clients increase their website traffic, rankings, and visibility in search results through innovative digital strategies and cutting-edge technology.</p>
+                    <div class="feature-points">
+                        <div class="feature-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 Support & Maintenance</span>
                         </div>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                        <div class="feature-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Scalable & Future-Ready Solutions</span>
+                        </div>
+                        <div class="feature-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ROI-Focused Development</span>
                         </div>
                     </div>
-                    <p>"DevCraft transformed our digital presence completely. Their team delivered beyond our expectations with exceptional attention to detail."</p>
+                    <a href="contact.html" class="btn-yellow">
+                        <span>Try Us Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="client-details">
-                                <h4>Michael Chen</h4>
-                                <p>Founder, E-Commerce Plus</p>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p>"Outstanding work on our mobile app. The user experience is smooth and our customers love the new features they implemented."</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="client-info">
-                            <div class="client-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="client-details">
-                                <h4>Emma Rodriguez</h4>
-                                <p>Marketing Director, GrowthCo</p>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p>"Their digital marketing strategies increased our online engagement by 300%. Professional, reliable, and results-driven team."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to get started?</h2>
-                <a href="contact.html" class="btn-white">Contact Us Now</a>
             </div>
         </div>
     </section>
@@ -322,6 +342,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
