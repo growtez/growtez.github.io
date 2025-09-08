@@ -1,3 +1,92 @@
+// Services Slider (Swiper.js)
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait for all elements to be loaded
+    setTimeout(() => {
+        const servicesSlider = document.querySelector('.services-slider');
+        if (servicesSlider) {
+            const slidesCount = servicesSlider.querySelectorAll('.swiper-slide').length;
+
+            const swiper = new Swiper(servicesSlider, {
+                loop: false, // avoid warnings when slides <= slidesPerView
+                watchOverflow: false,
+                observer: true,
+                observeParents: true,
+                observeSlideChildren: true,
+                slidesPerView: 1,
+                spaceBetween: 30,
+                speed: 600,
+                centeredSlides: false,
+                grabCursor: true,
+                navigation: {
+                    nextEl: servicesSlider.querySelector('.swiper-button-next'),
+                    prevEl: servicesSlider.querySelector('.swiper-button-prev'),
+                },
+                pagination: {
+                    el: servicesSlider.querySelector('.swiper-pagination'),
+                    clickable: true,
+                    dynamicBullets: false,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '"></span>';
+                    },
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        centeredSlides: true,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                        centeredSlides: false,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: false,
+                    },
+                    1200: {
+                        slidesPerView: 3, // show 3 on wide screens so navigation has room to move
+                        spaceBetween: 30,
+                        centeredSlides: false,
+                    }
+                },
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                on: {
+                    init: function() {
+                        console.log('Services Swiper initialized successfully', { slidesCount });
+                    }
+                }
+            });
+
+            // Ensure Swiper recalculates sizes once images/fonts are loaded
+            window.addEventListener('load', () => {
+                try { swiper.update(); } catch (e) {}
+            });
+
+            // Update on container resize
+            if (window.ResizeObserver) {
+                const ro = new ResizeObserver(() => {
+                    try { swiper.update(); } catch (e) {}
+                });
+                ro.observe(servicesSlider);
+            } else {
+                window.addEventListener('resize', () => {
+                    try { swiper.update(); } catch (e) {}
+                });
+            }
+        }
+    }, 100);
+});
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
@@ -322,71 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Testimonial Slider (for mobile)
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonialGrid = document.querySelector('.testimonials-grid');
-    if (testimonialGrid && window.innerWidth <= 768) {
-        let currentTestimonial = 0;
-        const testimonials = testimonialGrid.querySelectorAll('.testimonial-card');
-        
-        if (testimonials.length > 1) {
-            // Hide all except first
-            testimonials.forEach((testimonial, index) => {
-                if (index !== 0) {
-                    testimonial.style.display = 'none';
-                }
-            });
-            
-            // Add navigation dots
-            const dotsContainer = document.createElement('div');
-            dotsContainer.className = 'testimonial-dots';
-            dotsContainer.style.cssText = `
-                display: flex;
-                justify-content: center;
-                gap: 0.5rem;
-                margin-top: 2rem;
-            `;
-            
-            testimonials.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
-                dot.style.cssText = `
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    border: none;
-                    background: ${index === 0 ? 'var(--primary-color)' : 'var(--text-light)'};
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                `;
-                
-                dot.addEventListener('click', () => {
-                    showTestimonial(index);
-                });
-                
-                dotsContainer.appendChild(dot);
-            });
-            
-            testimonialGrid.parentNode.appendChild(dotsContainer);
-            
-            function showTestimonial(index) {
-                testimonials[currentTestimonial].style.display = 'none';
-                document.querySelectorAll('.testimonial-dot')[currentTestimonial].style.background = 'var(--text-light)';
-                
-                currentTestimonial = index;
-                testimonials[currentTestimonial].style.display = 'block';
-                document.querySelectorAll('.testimonial-dot')[currentTestimonial].style.background = 'var(--primary-color)';
-            }
-            
-            // Auto-rotate testimonials
-            setInterval(() => {
-                const nextIndex = (currentTestimonial + 1) % testimonials.length;
-                showTestimonial(nextIndex);
-            }, 5000);
-        }
-    }
-});
-
 // Portfolio Filter
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.portfolio-filter');
@@ -424,26 +448,6 @@ fadeInStyle.textContent = `
     }
 `;
 document.head.appendChild(fadeInStyle);
-
-// Lazy Loading Images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => {
-        imageObserver.observe(img);
-    });
-});
 
 // Back to Top Button
 document.addEventListener('DOMContentLoaded', function() {
@@ -506,361 +510,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Search Functionality
-function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-    
-    if (searchInput && searchResults) {
-        let searchTimeout;
-        
-        searchInput.addEventListener('input', function() {
-            clearTimeout(searchTimeout);
-            const query = this.value.trim().toLowerCase();
-            
-            if (query.length < 2) {
-                searchResults.style.display = 'none';
-                return;
-            }
-            
-            searchTimeout = setTimeout(() => {
-                performSearch(query);
-            }, 300);
-        });
-        
-        // Hide results when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
-                searchResults.style.display = 'none';
-            }
-        });
-    }
-}
-
-function performSearch(query) {
-    // Mock search data - replace with actual search implementation
-    const searchData = [
-        { title: 'Web Development', url: 'services.html#web-dev', type: 'Service' },
-        { title: 'Mobile App Development', url: 'services.html#app-dev', type: 'Service' },
-        { title: 'UI/UX Design', url: 'services.html#design', type: 'Service' },
-        { title: 'About Us', url: 'about.html', type: 'Page' },
-        { title: 'Contact Us', url: 'contact.html', type: 'Page' },
-        { title: 'Portfolio', url: 'portfolio.html', type: 'Page' }
-    ];
-    
-    const results = searchData.filter(item => 
-        item.title.toLowerCase().includes(query)
-    );
-    
-    const searchResults = document.getElementById('searchResults');
-    
-    if (results.length > 0) {
-        searchResults.innerHTML = results.map(result => `
-            <div class="search-result-item">
-                <a href="${result.url}">
-                    <span class="search-result-title">${result.title}</span>
-                    <span class="search-result-type">${result.type}</span>
-                </a>
-            </div>
-        `).join('');
-        
-        searchResults.style.display = 'block';
-    } else {
-        searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
-        searchResults.style.display = 'block';
-    }
-}
-
-// Initialize search on page load
-document.addEventListener('DOMContentLoaded', initializeSearch);
-
-// Theme Toggle (Dark/Light Mode)
-function initializeThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    
-    if (themeToggle) {
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Update toggle icon
-            const icon = this.querySelector('i');
-            if (newTheme === 'dark') {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
-            }
-        });
-        
-        // Set initial icon
-        const icon = themeToggle.querySelector('i');
-        if (currentTheme === 'dark') {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
-        }
-    }
-}
-
-// Add dark theme styles
-const darkThemeStyles = document.createElement('style');
-darkThemeStyles.textContent = `
-    [data-theme="dark"] {
-        --text-dark: #ffffff;
-        --text-light: #b0b0b0;
-        --bg-light: #2c2c2c;
-        --bg-cream: #1a1a1a;
-        --white: #1e1e1e;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    [data-theme="dark"] .header {
-        background: #1e1e1e;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    [data-theme="dark"] .service-card,
-    [data-theme="dark"] .testimonial-card,
-    [data-theme="dark"] .portfolio-item,
-    [data-theme="dark"] .blog-card,
-    [data-theme="dark"] .contact-form {
-        background: #2c2c2c;
-        color: #ffffff;
-    }
-    
-    [data-theme="dark"] .footer {
-        background: #0a0a0a;
-    }
-`;
-document.head.appendChild(darkThemeStyles);
-
-// Initialize theme toggle on page load
-document.addEventListener('DOMContentLoaded', initializeThemeToggle);
-
-// Parallax Effect
-function initializeParallax() {
-    const parallaxElements = document.querySelectorAll('.parallax');
-    
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        
-        parallaxElements.forEach(element => {
-            const rate = scrolled * -0.5;
-            element.style.transform = `translateY(${rate}px)`;
-        });
-    });
-}
-
-// Initialize parallax on page load
-document.addEventListener('DOMContentLoaded', initializeParallax);
-
-// Loading Screen
-function showLoadingScreen() {
-    const loader = document.createElement('div');
-    loader.id = 'pageLoader';
-    loader.innerHTML = `
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Loading...</p>
-        </div>
-    `;
-    
-    const loaderStyles = `
-        #pageLoader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loader-content {
-            text-align: center;
-        }
-        
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = loaderStyles;
-    document.head.appendChild(styleSheet);
-    document.body.appendChild(loader);
-    
-    // Hide loader when page is fully loaded
-    window.addEventListener('load', function() {
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                if (loader.parentNode) {
-                    loader.parentNode.removeChild(loader);
-                }
-            }, 500);
-        }, 1000);
-    });
-}
-
-// Initialize loading screen
-document.addEventListener('DOMContentLoaded', showLoadingScreen);
-
-// Service Worker Registration (for PWA)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful');
-            })
-            .catch(function(err) {
-                console.log('ServiceWorker registration failed');
-            });
-    });
-}
-
-// Performance Monitoring
-function monitorPerformance() {
-    if ('performance' in window) {
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                const perfData = performance.getEntriesByType('navigation')[0];
-                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
-                
-                if (loadTime > 3000) {
-                    console.warn('Page load time is slow:', loadTime + 'ms');
-                }
-            }, 0);
-        });
-    }
-}
-
-// Initialize performance monitoring
-document.addEventListener('DOMContentLoaded', monitorPerformance);
-
-// Accessibility Enhancements
-function enhanceAccessibility() {
-    // Skip to main content link
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main-content';
-    skipLink.textContent = 'Skip to main content';
-    skipLink.className = 'skip-link';
-    skipLink.style.cssText = `
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: var(--primary-color);
-        color: white;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        z-index: 10000;
-        transition: top 0.3s;
-    `;
-    
-    skipLink.addEventListener('focus', function() {
-        this.style.top = '6px';
-    });
-    
-    skipLink.addEventListener('blur', function() {
-        this.style.top = '-40px';
-    });
-    
-    document.body.insertBefore(skipLink, document.body.firstChild);
-    
-    // Add main content ID if not exists
-    const mainContent = document.querySelector('main') || document.querySelector('.hero');
-    if (mainContent && !mainContent.id) {
-        mainContent.id = 'main-content';
-    }
-    
-    // Ensure all images have alt text
-    const images = document.querySelectorAll('img:not([alt])');
-    images.forEach(img => {
-        img.setAttribute('alt', 'Image');
-    });
-    
-    // Add keyboard navigation for custom elements
-    const customButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline');
-    customButtons.forEach(btn => {
-        if (!btn.getAttribute('tabindex')) {
-            btn.setAttribute('tabindex', '0');
-        }
-        
-        btn.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
-        });
-    });
-}
-
-// Initialize accessibility enhancements
-document.addEventListener('DOMContentLoaded', enhanceAccessibility);
-
-// Error Handling
-window.addEventListener('error', function(event) {
-    console.error('JavaScript error:', event.error);
-    // You can send error reports to your analytics service here
-});
-
-window.addEventListener('unhandledrejection', function(event) {
-    console.error('Unhandled promise rejection:', event.reason);
-    // You can send error reports to your analytics service here
-});
-
-// Analytics (replace with your analytics code)
-function trackEvent(eventName, properties = {}) {
-    // Example: Google Analytics 4
-    if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, properties);
-    }
-    
-    // Example: Custom analytics
-    console.log('Event tracked:', eventName, properties);
-}
-
-// Track button clicks
-document.addEventListener('DOMContentLoaded', function() {
-    const trackableButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline');
-    
-    trackableButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const buttonText = this.textContent.trim();
-            const buttonHref = this.href || '';
-            
-            trackEvent('button_click', {
-                button_text: buttonText,
-                button_url: buttonHref,
-                page_url: window.location.href
-            });
-        });
-    });
-});
-
 // Hero Image Slider
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.hero-slider .slide');
@@ -872,6 +521,30 @@ document.addEventListener('DOMContentLoaded', function() {
             slides[currentSlide].classList.add('active');
         }, 3000); // Change image every 3 seconds
     }
+});
+
+// Service Worker Registration (for PWA)
+/* if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(function(err) {
+                console.log('ServiceWorker registration failed');
+            });
+    });
+} */
+
+// Error Handling
+window.addEventListener('error', function(event) {
+    console.error('JavaScript error:', event.error);
+    // You can send error reports to your analytics service here
+});
+
+window.addEventListener('unhandledrejection', function(event) {
+    console.error('Unhandled promise rejection:', event.reason);
+    // You can send error reports to your analytics service here
 });
 
 console.log('DevCraft JavaScript loaded successfully!');
