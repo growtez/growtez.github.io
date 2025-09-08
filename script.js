@@ -522,6 +522,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000); // Change image every 3 seconds
     }
 });
+document.querySelectorAll(".faq-question").forEach(question => {
+    question.addEventListener("click", () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle("active");
+    });
+});
 
 // Service Worker Registration (for PWA)
 /* if ('serviceWorker' in navigator) {

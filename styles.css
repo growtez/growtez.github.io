@@ -69,6 +69,7 @@ p {
 /* Buttons */
 .btn-primary, .btn-secondary, .btn-outline, .btn-white {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     padding: 12px 24px;
@@ -1481,7 +1482,7 @@ p {
 .portfolio-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #f8fdfd 0%, #e8f5f5 100%);
     display: flex;
     align-items: center;
     justify-content: center;
