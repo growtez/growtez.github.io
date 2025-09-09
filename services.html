@@ -11,8 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="services.html" class="logo-link">
+                    <img src="assets/logo.png" alt="Growtez Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About us</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
 
     <!-- Page Header -->
@@ -418,10 +438,56 @@
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <img src="assets/logo.png" alt="DevCraft Logo" class="footer-logo">
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">App Development</a></li>
+                            <li><a href="services.html">UI/UX Design</a></li>
+                            <li><a href="services.html">Digital Marketing</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DevCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="assets/js/components.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
