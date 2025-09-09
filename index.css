@@ -403,7 +403,7 @@ p {
 
 /* Services Cards Section with Glassmorphism */
 .services-cards {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    background: #249b9c;
     padding: 100px 0;
     position: relative;
     overflow: hidden;
@@ -471,12 +471,12 @@ p {
 }
 
 .service-card {
-    /* Darker than section background */
-    background: rgba(0, 0, 0, 0.18);
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    backdrop-filter: var(--backdrop-blur);
-    padding: 2.5rem 2rem;
+    /* Gradient light card like reference */
+    background: linear-gradient(165deg, #f3f8df 0%, #e7f2ff 55%, #cfe7ff 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 22px;
+    backdrop-filter: blur(6px);
+    padding: 2.2rem 1.8rem;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -485,8 +485,10 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 380px;
+    gap: 0.75rem; /* consistent inner spacing to avoid large gaps */
+    min-height: 360px;
     max-width: 100%;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10), inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
 .service-card::before {
@@ -505,9 +507,9 @@ p {
 }
 
 .service-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.18);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .card-glow {
@@ -516,9 +518,9 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Subtle dark overlay to deepen the card */
-    background: linear-gradient(135deg, rgba(0,0,0,0.25), rgba(0,0,0,0.1));
-    opacity: 0.15;
+    /* Subtle soft glow over gradient card */
+    background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.1));
+    opacity: 0.12;
     border-radius: inherit;
     filter: blur(20px);
     transition: opacity 0.4s;
@@ -526,13 +528,13 @@ p {
 }
 
 .service-card:hover .card-glow {
-    opacity: 0.25;
+    opacity: 0.2;
 }
 
 .service-icon {
     position: relative;
     font-size: 2.2rem;
-    color: var(--white);
+    color: #0b2b45; /* dark navy like reference */
     margin: 0 auto 1.2rem;
     display: inline-flex;
     align-items: center;
@@ -546,7 +548,7 @@ p {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+    background: radial-gradient(closest-side, rgba(255,255,255,0.85), rgba(255,255,255,0.2));
     filter: blur(0.2px);
     z-index: -1;
     display: block !important;
@@ -556,16 +558,15 @@ p {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
-    color: var(--white);
-    line-height: 1.3;
+    color: #0b2b45;
 }
 
 .service-card p {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.6;
-    margin-bottom: 0;
-    flex-grow: 1;
+font-size: 0.95rem;
+color: #123a5a;
+line-height: 1.6;
+margin-bottom: 0;
+flex-grow: 0; /* prevent paragraph from stretching and creating empty bottom space */
 }
 
 .card-border {
@@ -574,8 +575,8 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Soften the border to keep the card visually darker */
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Subtle teal border for definition on white */
+    border: 1px solid rgba(15, 138, 138, 0.25);
     border-radius: inherit;
     background: transparent;
     opacity: 1;
@@ -600,43 +601,47 @@ p {
 
 .services-slider .swiper-pagination {
     position: relative;
-    margin-top: 3rem; /* increased gap between slides and pagination */
+    margin-top: 3rem; /* space below slides */
 }
 
 /* When arrows are moved next to dots, lay them out inline */
 .services-slider .swiper-pagination.with-arrows {
     display: inline-flex;
-    align-items: center;
+    align-items: center; /* vertically align arrows with dots */
     justify-content: center;
     gap: 12px;
+    line-height: 0; /* prevent inline misalignment */
 }
 
 .services-slider .swiper-pagination.with-arrows .swiper-button-prev,
 .services-slider .swiper-pagination.with-arrows .swiper-button-next {
     position: static;
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
     border-radius: 8px;
-    color: #ffffff;               /* brighter arrow */
-    background: rgba(0, 0, 0, 0.15); /* subtle contrast on teal */
-    border: 1px solid rgba(255,255,255,0.5);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #ffffff;
+    background: transparent; /* match outlined dots */
+    border: 2px solid rgba(255,255,255,0.6);
+    box-shadow: none;
     transform: none;
     z-index: 2;
 }
 
 .services-slider .swiper-pagination.with-arrows .swiper-button-prev:hover,
 .services-slider .swiper-pagination.with-arrows .swiper-button-next:hover {
-    background: #ffffff;
+    background: #ffffff; /* filled like active dot */
     color: var(--primary-color);
     border-color: #ffffff;
 }
 
 .services-slider .swiper-pagination.with-arrows .swiper-button-prev::after,
 .services-slider .swiper-pagination.with-arrows .swiper-button-next::after {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* Keyboard focus visibility */
@@ -650,7 +655,7 @@ p {
     width: 10px;
     height: 10px;
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.7);
+    border: 2px solid rgba(255,255,255,0.6);
     opacity: 1;
     margin: 0 6px !important;
 }
@@ -958,7 +963,7 @@ p {
 .author-avatar {
     width: 50px;
     height: 50px;
-    background: ;
+    background: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1289,6 +1294,12 @@ p {
     .hero-slider .slide img { object-fit: cover; }
 
     .services-header h2 { font-size: 2.2rem; white-space: nowrap; }
+
+    /* Services cards: reduce padding and remove fixed height on mobile to avoid empty space */
+    .service-card { min-height: unset; padding: 1.75rem 1.25rem; }
+    .service-icon { width: 56px; height: 56px; font-size: 1.8rem; }
+    .service-card h3 { font-size: 1.1rem; }
+    .service-card p { font-size: 0.95rem; line-height: 1.55; }
 
     .strategy-container { flex-direction: column; gap: 3rem; }
     .strategy-content { position: static; text-align: center; }
