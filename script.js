@@ -63,6 +63,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 on: {
                     init: function() {
                         console.log('Services Swiper initialized successfully', { slidesCount });
+                        // Move nav arrows next to pagination dots
+                        try {
+                            const paginationEl = servicesSlider.querySelector('.swiper-pagination');
+                            const prevEl = servicesSlider.querySelector('.swiper-button-prev');
+                            const nextEl = servicesSlider.querySelector('.swiper-button-next');
+                            if (paginationEl && prevEl && nextEl) {
+                                paginationEl.classList.add('with-arrows');
+                                // Ensure buttons are first/last in pagination line
+                                paginationEl.prepend(prevEl);
+                                paginationEl.appendChild(nextEl);
+                            }
+                        } catch (e) { /* noop */ }
                     }
                 }
             });
@@ -93,25 +105,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('navMenu');
     
     if (hamburger && navMenu) {
+        const setMenuState = (open) => {
+            hamburger.classList.toggle('active', open);
+            navMenu.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+        };
+
+        // Click toggle
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const isOpen = hamburger.classList.contains('active');
+            setMenuState(!isOpen);
+        });
+
+        // Keyboard accessibility: Enter/Space toggle
+        hamburger.addEventListener('keydown', function(e) {
+            const key = e.key || e.code;
+            if (key === 'Enter' || key === ' ' || key === 'Spacebar') {
+                e.preventDefault();
+                const isOpen = hamburger.classList.contains('active');
+                setMenuState(!isOpen);
+            }
         });
 
         // Close menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                setMenuState(false);
             });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                setMenuState(false);
             }
         });
     }
@@ -515,11 +542,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.hero-slider .slide');
     if (slides.length > 0) {
         let currentSlide = 0;
-        setInterval(() => {
+        let intervalId = null;
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const showNextSlide = () => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 3000); // Change image every 3 seconds
+        };
+
+        const startSlider = () => {
+            if (intervalId || prefersReducedMotion || document.hidden || !heroInView) return;
+            intervalId = setInterval(showNextSlide, 3000);
+        };
+
+        const stopSlider = () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        };
+
+        // Pause when page is hidden / resume when visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopSlider();
+            } else {
+                startSlider();
+            }
+        });
+
+        // Pause when hero is out of view
+        let heroInView = true;
+        const heroSection = document.querySelector('.hero');
+        if ('IntersectionObserver' in window && heroSection) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    heroInView = entry.isIntersecting;
+                    if (heroInView) {
+                        startSlider();
+                    } else {
+                        stopSlider();
+                    }
+                });
+            }, { threshold: 0.2 });
+            io.observe(heroSection);
+        }
+
+        // Only run the slider if the user has not requested reduced motion
+        if (!prefersReducedMotion) {
+            startSlider();
+        }
     }
 });
 document.querySelectorAll(".faq-question").forEach(question => {
