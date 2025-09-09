@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 50%;
         cursor: pointer;
         font-size: 1.2rem;
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        box-shadow: none;
         transition: all 0.3s ease;
         opacity: 0;
         visibility: hidden;
@@ -528,12 +528,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hover effect
     backToTop.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-5px) scale(1.1)';
-        this.style.boxShadow = '0 8px 25px rgba(255, 107, 53, 0.4)';
+        this.style.boxShadow = 'none';
     });
     
     backToTop.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 4px 15px rgba(255, 107, 53, 0.3)';
+        this.style.boxShadow = 'none';
     });
 });
 
