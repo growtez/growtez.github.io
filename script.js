@@ -595,6 +595,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+document.querySelectorAll(".faq-question").forEach(question => {
+    question.addEventListener("click", () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle("active");
+    });
+});
 
 // Service Worker Registration (for PWA)
 /* if ('serviceWorker' in navigator) {
