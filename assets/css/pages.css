@@ -1,0 +1,130 @@
+/* FAQ Section */
+.faq {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #e0e5ec;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: var(--white);
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: var(--bg-light);
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background: var(--bg-light);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 1.5rem 2rem;
+}
+
+.faq-answer p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-detail-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .service-actions {
+        flex-direction: column;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-categories {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-illustration {
+        width: 250px;
+        height: 250px;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-overview,
+    .service-details,
+    .development-process,
+    .technologies-section,
+    .cta,
+    .faq {
+        padding: 60px 0;
+    }
+    
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .tech-icons {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-illustration {
+        width: 200px;
+        height: 200px;
+        font-size: 2.5rem;
+    }
+}
