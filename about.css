@@ -471,6 +471,10 @@
 .counter-number {
     transition: all 0.3s ease;
 }
+.counter-percent::after {
+  content: "%";
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
