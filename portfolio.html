@@ -4,160 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Portfolio - DevCraft</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <i class="fas fa-code"></i>
-                <span>DevCraft</span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About us</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-                <li><a href="contact.html" class="nav-link">Contact us</a></li>
-            </ul>
-            <a href="contact.html" class="btn-primary">Get Quote</a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+   <!-- Header -->
+   <header class="header">
+    <nav class="nav">
+        <div class="nav-brand">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="DevCraft Logo" class="logo-img">
+            </a>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link ">Home</a></li>
+            <li><a href="about.html" class="nav-link">About us</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+            <li><a href="contact.html" class="nav-link">Contact us</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1>Our <span class="highlight">Portfolio</span></h1>
             <p>Selected projects showcasing our design and development expertise</p>
-            <div class="breadcrumb">
-                <a href="index.html">Home</a>
-                <span>/</span>
-                <span>Portfolio</span>
-            </div>
+            
         </div>
     </section>
 
     <!-- Portfolio Grid -->
     <section class="services" id="portfolio">
         <div class="container">
-            <div class="section-header">
-                <h2>Recent <span class="highlight">Projects</span></h2>
-                <p>From web apps to mobile experiences, here are some highlights</p>
-            </div>
+           
 
             <div class="portfolio-grid">
-                <!-- Item 1 -->
-                <div class="portfolio-item">
+                <!-- Item 1 - Infrastructure Project -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="portfolio-image">
-                        <i class="fas fa-store"></i>
+                        <!-- Project Image -->
+                        <img src="assets/sukrit.avif" alt="Sukrit Infrastructure">
                     </div>
                     <div class="portfolio-content">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Scalable storefront with seamless checkout and advanced analytics.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Stripe</span>
-                        </div>
+                        <h3>Sukrit Infrastructure</h3>
+                        <p>
+                            Excellence in construction and infrastructure — building roads, bridges, housing, and industrial projects with quality and innovation.
+                        </p>
+                        <a href="http://sukritinfras.com/" class="visit-btn" target="_blank">
+                            <span>Visit Site</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, var(--accent-purple), #c39bd3);">
-                        <i class="fas fa-chart-line"></i>
+                <!-- Item 2 - NFO Exams -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-image">
+                        <img src="assets/NFO.avif" alt="NFO Exams">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Marketing Analytics Dashboard</h3>
-                        <p>Interactive dashboards delivering real-time campaign insights.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Vue</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
+                        <h3>NFO Exams</h3>
+                        <p>
+                            NFO — conducting Science, Maths, English, and Social Studies Olympiads across 121 schools in 47 cities with a presence nationwide.
+                        </p>
+                        <a href="http://nfoexams.in/" class="visit-btn" target="_blank">
+                            <span>Visit Site</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, var(--accent-green), #58d68d);">
-                        <i class="fas fa-mobile-alt"></i>
+                <!-- Item 3 - Nucleon Coaching -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-image">
+                        <img src="assets/Nucleon.png" alt="Nucleon Coaching Institutes">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Fitness Mobile App</h3>
-                        <p>Cross-platform mobile app with workouts, tracking and social features.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Firebase</span>
-                        </div>
+                        <h3>Nucleon Coaching Institutes</h3>
+                        <p>
+                            Nucleon Coaching Institutes — shaping future leaders through excellence in IIT-JEE and NEET preparation.
+                        </p>
+                        <a href="http://nucleongroup.in/" class="visit-btn" target="_blank">
+                            <span>Visit Site</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Item 4 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, var(--secondary-color), #f7b267);">
-                        <i class="fas fa-briefcase"></i>
+                <!-- Item 4 - Attendify -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-image">
+                        <img src="assets/attendify.png" alt="Attendify">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Corporate Website</h3>
-                        <p>High-performance, SEO-friendly website for a global consultancy.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Next.js</span>
-                            <span class="tag">SEO</span>
-                        </div>
+                        <h3>Attendify</h3>
+                        <p>
+                            Attendify — a comprehensive mobile app for streamlining attendance management with innovative solutions for educational institutions and organizations.
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1bpqlKwrggfl1o3hOG_96QUchLqAxznpR?usp=sharing" class="visit-btn" target="_blank">
+                            <span>View Demo</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Item 5 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Cloud Migration</h3>
-                        <p>Lift-and-shift to AWS with CI/CD and observability best practices.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">AWS</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="portfolio-item">
-                    <div class="portfolio-image" style="background: linear-gradient(135deg, #ef4444, #f59e0b);">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Social Engagement App</h3>
-                        <p>Real-time messaging and feed with scalable backend.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">React Native</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">WebSockets</span>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+
+    <!-- Enhanced CTA Section -->
     <section class="cta">
+        <div class="cta-decoration"></div>
+        <div class="cta-decoration"></div>
+        <div class="cta-decoration"></div>
         <div class="container">
             <div class="cta-content">
                 <h2>Have a project in mind?</h2>
-                <p>Let's build something remarkable together</p>
-                <a href="contact.html" class="btn-white">Start Your Project</a>
+                <p>Let's build something remarkable together. From concept to deployment, we're here to turn your vision into reality.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="about.html" class="btn-outline-white">
+                        <span>Learn More</span>
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -172,10 +160,10 @@
                         <span>DevCraft</span>
                     </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -213,6 +201,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- External JavaScript -->
+    <script src="portfolio.js"></script>
 </body>
 </html>
