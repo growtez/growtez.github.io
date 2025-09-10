@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - DevCraft</title>
+    <title>About Us - growtez</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <i class="fas fa-code"></i>
-                <span>DevCraft</span>
+                <a href="index.html" class="logo-link">
+                    <img src="assets/logo.png" alt="DevCraft Logo" class="logo-img">
+                </a>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html" class="nav-link ">Home</a></li>
                 <li><a href="about.html" class="nav-link active">About us</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="contact.html" class="nav-link">Contact us</a></li>
             </ul>
-            <a href="contact.html" class="btn-primary">Get Quote</a>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -35,13 +38,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>About <span class="highlight">DevCraft</span></h1>
-            <p>Crafting digital excellence through innovation and expertise</p>
-            <div class="breadcrumb">
-                <a href="index.html">Home</a>
-                <span>/</span>
-                <span>About Us</span>
-            </div>
+            <h1>About <span class="highlight">growtez</span></h1>
+            <p>Empowering businesses through innovative digital solutions</p>
         </div>
     </section>
 
@@ -50,77 +48,153 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Who We Are</h2>
-                    <p class="lead">DevCraft is a leading software development company specializing in creating innovative digital solutions that drive business growth and enhance user experiences.</p>
-                    
-                    <p>Founded in 2020, we have quickly established ourselves as a trusted partner for businesses looking to leverage technology for competitive advantage. Our team of skilled developers, designers, and digital strategists work collaboratively to deliver exceptional results.</p>
-                    
-                    <p>We believe in the power of clean code, intuitive design, and strategic thinking. Every project we undertake is approached with meticulous attention to detail and a commitment to excellence that has earned us recognition in the industry.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number counter-number" data-target="150">0</div>
-                            <div class="stat-label">Projects Completed</div>
+                    <center>
+                        <h2>
+                            Who We Are
+                        </h2>
+                        <h3 style="color: teal">Your Partner in Digital Excellence</h3>
+                    </center>
+                    <p class="lead">At growtez, we don't just build digital solutions – we architect your business's
+                        digital future with innovation, expertise, and unwavering commitment to your success.</p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Full-Service Digital Agency</span>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number counter-number" data-target="98">0</div>
-                            <div class="stat-label">Client Satisfaction %</div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Smart Solutions, Scalable Growth</span>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number counter-number" data-target="25">0</div>
-                            <div class="stat-label">Team Members</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number counter-number" data-target="4">0</div>
-                            <div class="stat-label">Years Experience</div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Client-Centric Approach</span>
                         </div>
                     </div>
+
+                    <!-- <p>Since our inception, GrowTez has been at the forefront of digital innovation, helping businesses navigate the complexities of digital transformation. We combine technical excellence with creative vision to deliver solutions that drive real business results.</p> -->
+
+                    <p>Our comprehensive suite of services – from web and mobile development to digital marketing and IT
+                        consulting – ensures that every aspect of your digital presence is optimized for success. We
+                        believe in building lasting partnerships, not just completing projects.</p>
                 </div>
-                <div class="about-image">
-                    <div class="about-illustration">
-                        <div class="team-working">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="floating-tech">
-                            <div class="tech-element tech-1"><i class="fab fa-react"></i></div>
-                            <div class="tech-element tech-2"><i class="fab fa-node-js"></i></div>
-                            <div class="tech-element tech-3"><i class="fab fa-python"></i></div>
-                            <div class="tech-element tech-4"><i class="fab fa-js-square"></i></div>
-                        </div>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-number counter-number" data-target="4">0</div>
+                    <div class="stat-label">Successful Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-smile"></i></div>
+                    <div class="stat-number counter-number counter-percent" data-target="100">0</div>
+                    <div class="stat-label">Happy Clients </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number counter-number" data-target="5">0</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-number counter-number counter-percent" data-target="100">0</div>
+                    <div class="stat-label">On-time Project Delivery</div>
+                </div>
+                <!-- <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-number counter-number" data-target="20">0</div>
+                    <div class="stat-label">Awards Won</div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Values & Vision -->
+    <section class="values-vision">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core <span class="highlight">Values & Vision</span></h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+                <!-- <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace cutting-edge technologies and creative solutions to keep our clients ahead of the curve. Innovation isn't just about technology—it's about finding better ways to solve problems and create value.</p>
+                </div> -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>Open communication and honest relationships form the foundation of our partnerships. We believe
+                        in keeping our clients informed at every step, ensuring clarity in processes, pricing, and
+                        progress.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Client Success</h3>
+                    <p>Your success is our success. We measure our achievements by the growth and satisfaction of our
+                        clients, going above and beyond to ensure every project delivers real, measurable results.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Long-term Growth</h3>
+                    <p>We focus on building sustainable solutions that support your business's long-term objectives. Our
+                        strategies are designed not just for immediate impact but for continued success and scalability.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section class="mission-vision">
+    <!-- Team Section -->
+    <!-- <section class="team-section">
         <div class="container">
-            <div class="mission-vision-grid">
-                <div class="mission-card">
-                    <div class="card-icon">
-                        <i class="fas fa-bullseye"></i>
+            <div class="section-header">
+                <h2>Meet Our <span class="highlight">Expert Team</span></h2>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower businesses with cutting-edge technology solutions that drive innovation, enhance efficiency, and create meaningful digital experiences for users worldwide.</p>
+                    <h4>Development Team</h4>
+                    <p>Expert developers proficient in modern technologies, creating robust web and mobile applications that scale with your business.</p>
                 </div>
-                <div class="vision-card">
-                    <div class="card-icon">
-                        <i class="fas fa-eye"></i>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3>Our Vision</h3>
-                    <p>To be the global leader in digital transformation, setting new standards for excellence in software development and helping businesses thrive in the digital age.</p>
+                    <h4>Design Team</h4>
+                    <p>Creative designers who craft stunning visual experiences and intuitive interfaces that engage users and strengthen your brand.</p>
                 </div>
-                <div class="values-card">
-                    <div class="card-icon">
-                        <i class="fas fa-heart"></i>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-bullhorn"></i>
                     </div>
-                    <h3>Our Values</h3>
-                    <p>Innovation, integrity, collaboration, and customer-centricity guide everything we do. We believe in building long-term partnerships based on trust and mutual success.</p>
+                    <h4>Marketing Team</h4>
+                    <p>Strategic marketers who develop data-driven campaigns that increase visibility, drive traffic, and convert leads into customers.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h4>Consulting Team</h4>
+                    <p>Experienced consultants who analyze your business needs and provide strategic guidance for digital transformation success.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Team Section -->
     <section class="team-section">
@@ -132,11 +206,12 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/shahid3.jpg" alt="Sarah Chen">
                     </div>
-                    <div class="member-name">Alex Johnson</div>
-                    <div class="member-role">CEO & Founder</div>
-                    <p>Visionary leader with 10+ years in tech industry. Passionate about driving innovation and building exceptional teams.</p>
+                    <div class="member-name">Shahid Anowar</div>
+                    <div class="member-role">ABCD</div>
+                    <p>Visionary leader with 10+ years in tech industry. Passionate about driving innovation and
+                        building exceptional teams.</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -145,11 +220,12 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/faruk2.jpeg" alt="Sarah Chen">
                     </div>
-                    <div class="member-name">Sarah Chen</div>
-                    <div class="member-role">CTO</div>
-                    <p>Technical architect with expertise in scalable systems. Leads our development team with focus on quality and innovation.</p>
+                    <div class="member-name">Faruk Khan</div>
+                    <div class="member-role">ABCD</div>
+                    <p>Technical architect with expertise in scalable systems. Leads our development team with focus on
+                        quality and innovation.</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -158,11 +234,12 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/sanjeev.jpeg" alt="Sarah Chen">
                     </div>
-                    <div class="member-name">Michael Rodriguez</div>
-                    <div class="member-role">Lead Designer</div>
-                    <p>Creative designer with an eye for detail. Specializes in creating beautiful, user-centered digital experiences.</p>
+                    <div class="member-name">Sanjeev Iqbal Ahmed</div>
+                    <div class="member-role">ABCD </div>
+                    <p>Creative designer with an eye for detail. Specializes in creating beautiful, user-centered
+                        digital experiences.</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-dribbble"></i></a>
@@ -171,11 +248,12 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/sourav.jpeg" alt="Sarah Chen">
                     </div>
-                    <div class="member-name">Emily Davis</div>
-                    <div class="member-role">Project Manager</div>
-                    <p>Organized and detail-oriented project manager ensuring smooth delivery and client satisfaction on every project.</p>
+                    <div class="member-name">Sourav Sharma</div>
+                    <div class="member-role">ABCD</div>
+                    <p>Organized and detail-oriented project manager ensuring smooth delivery and client satisfaction on
+                        every project.</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -183,82 +261,16 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fas fa-user"></i>
+                        <img src="assets/mridul.jpg" alt="Sarah Chen">
                     </div>
-                    <div class="member-name">David Thompson</div>
-                    <div class="member-role">Full Stack Developer</div>
-                    <p>Versatile developer proficient in multiple technologies. Builds robust applications from frontend to backend.</p>
+                    <div class="member-name">Mridul Roy</div>
+                    <div class="member-role">ABCD</div>
+                    <p>Versatile developer proficient in multiple technologies. Builds robust applications from frontend
+                        to backend.</p>
                     <div class="member-social">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-stack-overflow"></i></a>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="member-name">Lisa Wang</div>
-                    <div class="member-role">Marketing Director</div>
-                    <p>Strategic marketer with expertise in digital campaigns. Drives brand awareness and client acquisition strategies.</p>
-                    <div class="member-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our <span class="highlight">Process</span></h2>
-                <p>How we deliver exceptional results</p>
-            </div>
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Discovery</h4>
-                        <p>We start by understanding your business goals, target audience, and technical requirements through detailed discussions and research.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Planning</h4>
-                        <p>Our team creates a comprehensive project plan including wireframes, technical architecture, and timeline with clear milestones.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Design</h4>
-                        <p>We craft beautiful, intuitive designs that align with your brand and provide excellent user experience across all devices.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h4>Development</h4>
-                        <p>Our developers bring the designs to life using modern technologies and best practices, ensuring high quality and performance.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h4>Testing</h4>
-                        <p>Rigorous testing across devices and browsers ensures your solution works flawlessly before launch.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h4>Launch</h4>
-                        <p>We handle the deployment and launch process, providing support and monitoring to ensure smooth operations.</p>
                     </div>
                 </div>
             </div>
@@ -269,8 +281,7 @@
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to work with us?</h2>
-                <p>Let's discuss your project and create something amazing together</p>
+                <h2>Let's grow together.</h2>
                 <a href="contact.html" class="btn-white">Get Started Today</a>
             </div>
         </div>
@@ -282,8 +293,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand">
-                        <i class="fas fa-code"></i>
-                        <span>DevCraft</span>
+                        <i class="fas fa-rocket"></i>
+                        <span>growtez</span>
                     </div>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -306,320 +317,30 @@
                         <h4>Services</h4>
                         <ul>
                             <li><a href="services.html">Web Development</a></li>
-                            <li><a href="services.html">App Development</a></li>
-                            <li><a href="services.html">UI/UX Design</a></li>
+                            <li><a href="services.html">Mobile App Development</a></li>
                             <li><a href="services.html">Digital Marketing</a></li>
+                            <li><a href="services.html">Branding</a></li>
+                            <li><a href="services.html">IT Consulting</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Blog</a></li>
                             <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DevCraft. All rights reserved.</p>
+                <p>&copy; 2024 growtez. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <style>
-        .about-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .about-illustration {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, var(--accent-green), #58d68d);
-            border-radius: 50% 30% 50% 30%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .team-working {
-            font-size: 4rem;
-            color: var(--white);
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .floating-tech {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .tech-element {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--white);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .tech-1 {
-            background: #61dafb;
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .tech-2 {
-            background: #68a063;
-            top: 50%;
-            right: -10%;
-            animation-delay: 1s;
-        }
-
-        .tech-3 {
-            background: #3776ab;
-            bottom: 20%;
-            left: -10%;
-            animation-delay: 2s;
-        }
-
-        .tech-4 {
-            background: #f7df1e;
-            color: #323330;
-            top: 70%;
-            left: 20%;
-            animation-delay: 3s;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .mission-vision {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .mission-vision-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .mission-card, .vision-card, .values-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .mission-card:hover, .vision-card:hover, .values-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-            color: var(--white);
-        }
-
-        .mission-card .card-icon {
-            background: var(--primary-color);
-        }
-
-        .vision-card .card-icon {
-            background: var(--accent-purple);
-        }
-
-        .values-card .card-icon {
-            background: var(--accent-green);
-        }
-
-        .team-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .process-section {
-            padding: 80px 0;
-            background: var(--bg-cream);
-        }
-
-        .process-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-        }
-
-        .process-step {
-            position: relative;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-        }
-
-        .process-step .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-content {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            flex: 1;
-        }
-
-        .step-content h4 {
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .step-content p {
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .lead {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                text-align: center;
-            }
-
-            .about-illustration {
-                width: 300px;
-                height: 300px;
-            }
-
-            .team-working {
-                font-size: 3rem;
-            }
-
-            .tech-element {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .about-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .mission-vision-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-timeline::before {
-                display: none;
-            }
-
-            .process-step {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .process-step .step-number {
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .about-illustration {
-                width: 250px;
-                height: 250px;
-            }
-
-            .team-working {
-                font-size: 2.5rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-element {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-        }
-    </style>
 </body>
+
 </html>
