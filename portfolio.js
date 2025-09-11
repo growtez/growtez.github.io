@@ -44,7 +44,7 @@ function initMobileNavigation() {
             if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
-            });
+            }
         });
     }
 }
