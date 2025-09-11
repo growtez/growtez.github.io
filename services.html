@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - DevCraft</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Our Services - Growtez</title>
+    <link rel="stylesheet" href="services.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
+        <nav class="nav container">
             <div class="nav-brand">
-                <i class="fas fa-code"></i>
-                <span>DevCraft</span>
+                <a href="index.html" class="logo-link">
+                    <img src="assets/logo.png" alt="Growtez Logo" class="logo-img" width="160" height="40" decoding="async">
+                </a>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -23,8 +24,7 @@
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="contact.html" class="nav-link">Contact us</a></li>
             </ul>
-            <a href="contact.html" class="btn-primary">Get Quote</a>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,26 +32,27 @@
         </nav>
     </header>
 
+
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1>Our <span class="highlight">Services</span></h1>
-            <p>Comprehensive digital solutions to accelerate your business growth</p>
-            <div class="breadcrumb">
+            <p>We provide end-to-end digital solutions that help businesses transform their ideas into powerful digital experiences. From initial concept to final deployment and ongoing support, we're your trusted technology partner.</p>
+            <!-- <div class="breadcrumb">
                 <a href="index.html">Home</a>
                 <span>/</span>
                 <span>Services</span>
-            </div>
+            </div> -->
         </div>
     </section>
 
     <!-- Services Overview -->
     <section class="services-overview">
         <div class="container">
-            <div class="services-intro">
+            <!-- <div class="services-intro">
                 <h2>What We <span class="highlight">Offer</span></h2>
                 <p>We provide end-to-end digital solutions that help businesses transform their ideas into powerful digital experiences. From initial concept to final deployment and ongoing support, we're your trusted technology partner.</p>
-            </div>
+            </div> -->
             
             <div class="services-grid">
                 <div class="service-card featured" id="web-dev">
@@ -66,13 +67,13 @@
                         <li><i class="fas fa-check"></i> SEO-Friendly</li>
                         <li><i class="fas fa-check"></i> Cross-browser Compatible</li>
                     </ul>
-                    <div class="service-technologies">
+                    <!-- <div class="service-technologies">
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">Node.js</span>
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">PHP</span>
-                    </div>
-                    <a href="#web-development-details" class="btn-outline">Learn More</a>
+                    </div> -->
+                    <!-- <a href="#web-development-details" class="btn-outline">Learn More</a> -->
                 </div>
                 
                 <div class="service-card featured" id="app-dev">
@@ -82,18 +83,18 @@
                     <h3>Mobile App Development</h3>
                     <p>Native and cross-platform mobile applications for iOS and Android devices.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Native iOS & Android</li>
+                        <li><i class="fas fa-check"></i> Native Android & iOS</li>
                         <li><i class="fas fa-check"></i> Cross-platform Solutions</li>
-                        <li><i class="fas fa-check"></i> App Store Deployment</li>
+                        <li><i class="fas fa-check"></i> Play Store/App Store Deployment</li>
                         <li><i class="fas fa-check"></i> Ongoing Maintenance</li>
                     </ul>
-                    <div class="service-technologies">
+                    <!-- <div class="service-technologies">
                         <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">React Native</span>
                         <span class="tech-tag">Swift</span>
                         <span class="tech-tag">Kotlin</span>
-                    </div>
-                    <a href="#app-development-details" class="btn-outline">Learn More</a>
+                    </div> -->
+                    <!-- <a href="#app-development-details" class="btn-outline">Learn More</a> -->
                 </div>
                 
                 <div class="service-card featured" id="design">
@@ -108,13 +109,13 @@
                         <li><i class="fas fa-check"></i> Visual Design</li>
                         <li><i class="fas fa-check"></i> Usability Testing</li>
                     </ul>
-                    <div class="service-technologies">
+                    <!-- <div class="service-technologies">
                         <span class="tech-tag">Figma</span>
                         <span class="tech-tag">Sketch</span>
                         <span class="tech-tag">Adobe XD</span>
                         <span class="tech-tag">Principle</span>
-                    </div>
-                    <a href="#design-details" class="btn-outline">Learn More</a>
+                    </div> -->
+                    <!-- <a href="#design-details" class="btn-outline">Learn More</a> -->
                 </div>
                 
                 <div class="service-card">
@@ -129,62 +130,20 @@
                         <li><i class="fas fa-check"></i> Content Strategy</li>
                         <li><i class="fas fa-check"></i> Analytics & Reporting</li>
                     </ul>
-                    <div class="service-technologies">
+                    <!-- <div class="service-technologies">
                         <span class="tech-tag">Google Ads</span>
                         <span class="tech-tag">Facebook Ads</span>
                         <span class="tech-tag">Analytics</span>
                         <span class="tech-tag">HubSpot</span>
-                    </div>
-                    <a href="#marketing-details" class="btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon blue">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud infrastructure and deployment solutions for modern applications.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Cloud Migration</li>
-                        <li><i class="fas fa-check"></i> DevOps & CI/CD</li>
-                        <li><i class="fas fa-check"></i> Infrastructure as Code</li>
-                        <li><i class="fas fa-check"></i> Monitoring & Support</li>
-                    </ul>
-                    <div class="service-technologies">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Azure</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                    </div>
-                    <a href="#cloud-details" class="btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon orange">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Consulting & Strategy</h3>
-                    <p>Technology consulting and strategic planning to align your digital initiatives with business goals.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Technology Assessment</li>
-                        <li><i class="fas fa-check"></i> Digital Transformation</li>
-                        <li><i class="fas fa-check"></i> Architecture Planning</li>
-                        <li><i class="fas fa-check"></i> Team Augmentation</li>
-                    </ul>
-                    <div class="service-technologies">
-                        <span class="tech-tag">Strategy</span>
-                        <span class="tech-tag">Analysis</span>
-                        <span class="tech-tag">Planning</span>
-                        <span class="tech-tag">Execution</span>
-                    </div>
-                    <a href="#consulting-details" class="btn-outline">Learn More</a>
+                    </div> -->
+                    <!-- <a href="#marketing-details" class="btn-outline">Learn More</a> -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Service Details Sections -->
-    <section class="service-details" id="web-development-details">
+    <!-- <section class="service-details" id="web-development-details">
         <div class="container">
             <div class="service-detail-content">
                 <div class="service-detail-text">
@@ -246,9 +205,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <section class="service-details alt" id="app-development-details">
+    <!-- <section class="service-details alt" id="app-development-details">
         <div class="container">
             <div class="service-detail-content">
                 <div class="service-detail-visual">
@@ -309,10 +268,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Process Section -->
-    <section class="development-process">
+    <!-- <section class="development-process">
         <div class="container">
             <div class="section-header">
                 <h2>Our Development <span class="highlight">Process</span></h2>
@@ -363,10 +322,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Technologies Section -->
-    <section class="technologies-section">
+    <!-- <section class="technologies-section">
         <div class="container">
             <div class="section-header">
                 <h2>Technologies We <span class="highlight">Use</span></h2>
@@ -422,7 +381,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="cta">
@@ -441,14 +400,13 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="brand">
-                        <i class="fas fa-code"></i>
-                        <span>DevCraft</span>
+                        <img src="assets/footer-logo.png" alt="growtez Logo" class="footer-logo" width="200" height="50" loading="lazy" decoding="async">
                     </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -470,22 +428,14 @@
                             <li><a href="services.html">Digital Marketing</a></li>
                         </ul>
                     </div>
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DevCraft. All rights reserved.</p>
+                <p>&copy; 2024 growtez. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="services.js"></script>
 </body>
 </html>
