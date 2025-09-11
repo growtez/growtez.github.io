@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - growtez</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pricing.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- <style>
+        /* Toggle Button Styles */
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .toggle-container {
+            background: #f8f9fa;
+            border-radius: 50px;
+            padding: 4px;
+            display: flex;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .toggle-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            border-radius: 46px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+            color: #666;
+        }
+
+        .toggle-btn.active {
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .pricing-content {
+            min-height: 600px;
+        }
+
+        .pricing-grid.hidden {
+            display: none;
+        }
+
+        /* Animation for content switching */
+        .pricing-grid {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style> -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/logo.png" alt="DevCraft Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link active">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our <span class="highlight">Pricing Plans</span></h1>
+            <p>Choose the perfect plan to grow your business</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent <span class="highlight">Pricing</span></h2>
+                <p>No hidden fees. No surprises. Just great value for your investment.</p>
+                <h4>Prices are <span class="highlight">negotiable.</span> Contact us to know more</h4>
+            </div>
+
+            <!-- Toggle Button -->
+            <div class="pricing-toggle">
+                <div class="toggle-container">
+                    <button class="toggle-btn active" data-target="web-dev">Web Development</button>
+                    <button class="toggle-btn" data-target="app-dev">App Development</button>
+                </div>
+            </div>
+
+            <div class="pricing-content">
+                <!-- Web Development Pricing -->
+                <div class="pricing-grid" id="web-dev-pricing">
+                    <!-- Launch Plan -->
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Starter Pack</h3>
+                            <p class="plan-subtitle">Perfect for small businesses and new startups</p>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">8,000</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>5–7 page modern responsive website</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic branding kit (logo placement, brand colors, fonts)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Email & chat support (within 24 hours response)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3 Months Free Support</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Free SSL & 1 year standard hosting</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Mobile responsive design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>No e-commerce or advanced integrations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Limited SEO depth (no backlinks or blog strategy)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>No Payment Gateway Setup</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn">Get Started</button>
+                    </div>
+
+                    <!-- Scale Plan - Most Popular -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">MOST POPULAR PLAN</div>
+                        <div class="plan-header">
+                            <h3>Growth Pack</h3>
+                            <p class="plan-subtitle">For businesses ready to grow & sell online</p>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">15,000</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>10-20 page modern responsive website</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom UI Design on Page Builders</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Admin Dashboard + Blog Setup</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Analytics dashboard (Google Analytics, Search Console, Ads)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>6 Months Support</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Priority support (email + chat, 12-hour response time)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Hosting + SSL included for 1 year</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Support is not 24/7 (business hours only)</span>
+                            </div>
+                                <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Limited custom integrations (CRM/ERP need enterprise pack)</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn popular-btn">Get Started</button>
+                    </div>
+
+                    <!-- Custom Web App Plan -->
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Enterprise Pack</h3>
+                            <p class="plan-subtitle">For large organizations, corporates, and enterprises that need unlimited scalability & premium support.</p>
+                            <div class="price">
+                                <span class="custom-quote">Custom Price</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Completely custom web development (websites, portals, e-commerce)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Unlimited pages, complex integrations (ERP, CRM, APIs, automation)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>API Development & Integrations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dashboard, Analytics, or Custom CMS</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Full-scale SEO (on-page, off-page, global targeting, backlink campaigns, content clusters)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>24/7 premium support (phone, WhatsApp, chat, email)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Hosting & Domain Guidance</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn">Contact Sales</button>
+                    </div>
+
+                </div>
+
+                <!-- App Development Pricing -->
+                <div class="pricing-grid hidden" id="app-dev-pricing">
+                    <!-- Starter App Plan -->
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Starter App</h3>
+                            <p class="plan-subtitle">Simple mobile apps for small businesses</p>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">25,000</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Cross-platform app (Android + iOS) using Flutter/React Native</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Simple UI/UX design (modern, responsive layouts)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic API integrations (payment gateway OR third-party API)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic analytics (Firebase/Google Analytics)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3 Months Support</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Limited backend (basic database only, no scalability)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>No advanced custom features (chat, maps, AI, real-time tracking)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>No Advanced Integrations</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn">Get Started</button>
+                    </div>
+
+                    <!-- Professional App Plan - Most Popular -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">MOST POPULAR PLAN</div>
+                        <div class="plan-header">
+                            <h3>Growth App</h3>
+                            <p class="plan-subtitle">Feature-rich apps for growing businesses</p>
+                            <div class="price">
+                                <span class="currency">₹</span>
+                                <span class="amount">45,000</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Fully functional cross-platform app (Android + iOS)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom UI/UX Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced features (real-time chat, maps, geolocation)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom backend with database </span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>6 Months Support</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Integration with third-party APIs (payment, analytics, etc.)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Complex enterprise-level integrations (ERP/CRM, AI modules, etc. not included)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-times"></i>
+                                <span>Support available only during business hours</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn popular-btn">Get Started</button>
+                    </div>
+
+                    <!-- Enterprise App Plan -->
+                    <div class="pricing-card">
+                        <div class="plan-header">
+                            <h3>Enterprise App</h3>
+                            <p class="plan-subtitle">Complex apps with advanced functionality</p>
+                            <div class="price">
+                                <span class="custom-quote">Custom Price</span>
+                            </div>
+                        </div>
+                        <div class="plan-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Native iOS + Android + Web App</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Complex Backend Architecture</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Complex features (AI/ML integration, IoT, blockchain, AR/VR, advanced geolocation, real-time tracking, video/audio streaming)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Robust backend with scalable cloud infrastructure (AWS/Azure/GCP)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Multi-level admin dashboards + role-based access</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Third-party API Integrations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>DevOps & Security Implementation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>12 Months Support</span>
+                            </div>
+                        </div>
+                        <button class="plan-btn">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+                <p>Got questions? We've got answers.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What's included in the support period?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our support includes bug fixes, minor updates, content updates, and technical assistance. We're here to ensure your website or app runs smoothly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I upgrade my plan later?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! You can upgrade your plan at any time. We'll work with you to enhance your existing setup with additional features.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you provide hosting services?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide hosting guidance and can recommend the best hosting solutions for your needs. We also offer managed hosting services for enterprise clients.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What's the difference between web and app development?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Web development creates websites and web applications that run in browsers, while app development creates native or hybrid applications for mobile devices and app stores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to get started?</h2>
+                <a href="contact.html" class="btn-white">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <i class="fas fa-rocket"></i>
+                        <span>growtez</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">Mobile App Development</a></li>
+                            <li><a href="services.html">Digital Marketing</a></li>
+                            <li><a href="services.html">Branding</a></li>
+                            <li><a href="services.html">IT Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 growtez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Pricing Toggle Functionality
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.dataset.target;
+                
+                // Update active toggle button
+                document.querySelectorAll('.toggle-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                // Show/hide pricing sections
+                document.querySelectorAll('.pricing-grid').forEach(grid => {
+                    grid.classList.add('hidden');
+                });
+                
+                if (target === 'web-dev') {
+                    document.getElementById('web-dev-pricing').classList.remove('hidden');
+                } else {
+                    document.getElementById('app-dev-pricing').classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
