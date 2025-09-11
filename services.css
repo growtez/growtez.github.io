@@ -274,8 +274,8 @@ p {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr; /* logo column + links column, same as index */
+    gap: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -324,7 +324,7 @@ p {
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* two columns, same as index */
     gap: 2rem;
 }
 
@@ -348,7 +348,8 @@ p {
 }
 
 .footer-column ul li a:hover {
-    color: var(--primary-color);
+    color: var(--white); /* match index */
+    text-decoration: underline;
 }
 
 .footer-bottom {
