@@ -2,10 +2,32 @@
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
-if (mobileMenuBtn) {
+if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
+        
+        // Update aria-expanded for accessibility
+        const isExpanded = navLinks.classList.contains('active');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Close menu when clicking on nav links
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
     });
 }
 
