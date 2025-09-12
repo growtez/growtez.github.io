@@ -17,7 +17,7 @@
     width: 200%;
     height: 200%;
     background: radial-gradient(circle at 30% 20%, rgba(15, 138, 138, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(47, 163, 165, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 70% 80%, rgba(47, 163, 165, 0.05) 0%, transparent 50%);
     /* animation: float 20s ease-in-out infinite; */
 }
 
@@ -52,7 +52,7 @@
     margin-bottom: 10px;
     display: flex;
     position: relative;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .toggle-btn {
@@ -71,7 +71,7 @@
 
 .toggle-btn.active {
     color: white;
-    background: #0F8A8A;  
+    background: #0F8A8A;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
@@ -89,8 +89,19 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.highlight {
+    color: #0e7676;
 }
 
 /* Pricing Section */
@@ -126,20 +137,25 @@
 /* Pricing Grid */
 .pricing-grid {
     display: grid;
-    grid-template-columns:  repeat(auto-fit, minmax(350px, 1fr)); /* 3 equal columns */
-    gap: 40px; /* space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* 3 equal columns */
+    gap: 40px;
+    /* space between cards */
 }
 
 .pricing-section .section-header h4 {
     margin-top: 1rem;
     font-size: 1.2rem;
     font-weight: 500;
-    color: #444; /* softer dark shade */
+    color: #444;
+    /* softer dark shade */
     line-height: 1.6;
     text-align: center;
-    background: #fffbd3; /* light background highlight */
+    background: #fffbd3;
+    /* light background highlight */
     padding: 10px 15px;
-    border-left: 4px solid var(--primary-color, #00aaff); /* highlight bar */
+    border-left: 4px solid var(--primary-color, #00aaff);
+    /* highlight bar */
     border-right: 4px solid var(--primary-color, #00aaff);
     border-radius: 6px;
     display: inline-block;
@@ -155,7 +171,7 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    border: 2px solid transparent;
+    border: 2px #0F8A8A solid;
     height: fit-content;
 }
 
@@ -387,31 +403,38 @@
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    background: rgba(15, 138, 138, 0.02);
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.3s ease-out;
+    padding: 0 2rem;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    max-height: 500px;
     padding: 0 2rem 1.5rem;
 }
 
 .faq-answer p {
-    font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin: 1rem 0 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
+.faq-item.active .faq-answer p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg); /* optional rotation for effect */
+}
 /* CTA Section Override */
-.pricing-section + .cta {
+.pricing-section+.cta {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     position: relative;
     overflow: hidden;
     padding: 80px 0;
 }
 
-.pricing-section + .cta::before {
+.pricing-section+.cta::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -460,14 +483,29 @@
 
 /* Animations */
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -30px) rotate(120deg); }
-    66% { transform: translate(-20px, 20px) rotate(240deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -30px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+    }
 }
 
 @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Responsive Design */
@@ -477,11 +515,11 @@
         gap: 2rem;
         max-width: 900px;
     }
-    
+
     .pricing-card.popular {
         transform: none;
     }
-    
+
     .pricing-card.popular:hover {
         transform: translateY(-10px);
     }
@@ -491,70 +529,70 @@
     .pricing-section {
         padding: 60px 0;
     }
-    
+
     .pricing-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
         max-width: 500px;
     }
-    
+
     .page-header {
         padding: 120px 0 60px;
     }
-    
+
     .page-header h1 {
         font-size: 2rem;
     }
-    
+
     .page-header p {
         font-size: 1.1rem;
     }
-    
+
     .plan-header {
         padding: 2rem 1.5rem 1.5rem;
     }
-    
+
     .plan-features {
         padding: 1.5rem;
     }
-    
+
     .plan-btn {
         width: calc(100% - 3rem);
         margin: 0 1.5rem 1.5rem;
     }
-    
+
     .amount {
         font-size: 2rem;
     }
-    
+
     .currency {
         font-size: 1.2rem;
     }
-    
+
     .custom-quote {
         font-size: 1.3rem;
     }
-    
+
     .faq-section {
         padding: 60px 0;
     }
-    
+
     .faq-question {
         padding: 1.25rem 1.5rem;
     }
-    
+
     .faq-answer {
         padding: 0 1.5rem 1.25rem;
     }
-    
+
     .faq-item.active .faq-answer {
         padding: 0 1.5rem 1.25rem;
     }
-    
+
     .cta-content h2 {
         font-size: 2rem;
     }
-    
+
     .cta-content p {
         font-size: 1.1rem;
     }
@@ -564,65 +602,65 @@
     .page-header h1 {
         font-size: 1.8rem;
     }
-    
+
     .page-header p {
         font-size: 1rem;
         padding: 0 1rem;
     }
-    
+
     .section-header h2 {
         font-size: 1.8rem;
     }
-    
+
     .plan-header h3 {
         font-size: 1.3rem;
     }
-    
+
     .plan-subtitle {
         font-size: 0.9rem;
     }
-    
+
     .amount {
         font-size: 1.8rem;
     }
-    
+
     .currency {
         font-size: 1.1rem;
     }
-    
+
     .custom-quote {
         font-size: 1.2rem;
     }
-    
+
     .feature-item {
         padding: 0.6rem 0;
     }
-    
+
     .feature-item span {
         font-size: 0.9rem;
     }
-    
+
     .plan-btn {
         font-size: 0.95rem;
         padding: 0.9rem;
     }
-    
+
     .faq-question h4 {
         font-size: 1rem;
     }
-    
+
     .faq-answer p {
         font-size: 0.95rem;
     }
-    
+
     .cta-content h2 {
         font-size: 1.8rem;
     }
-    
+
     .cta-content p {
         font-size: 1rem;
     }
-    
+
     .btn-white {
         padding: 0.9rem 2rem;
         font-size: 1rem;
@@ -656,6 +694,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -676,10 +715,13 @@
 
 /* Pulse Animation for Popular Badge */
 @keyframes pulse {
-    0%, 100% { 
+
+    0%,
+    100% {
         box-shadow: 0 0 0 0 rgba(15, 138, 138, 0.4);
     }
-    50% { 
+
+    50% {
         box-shadow: 0 0 0 10px rgba(15, 138, 138, 0);
     }
 }

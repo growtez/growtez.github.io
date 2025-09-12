@@ -11,21 +11,24 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
+        <nav class="nav container">
             <div class="nav-brand">
                 <a href="index.html" class="logo-link">
-                    <img src="assets/logo.png" alt="Growtez Logo" class="logo-img">
+                    <img src="assets/logo.png" alt="growtez Logo" class="logo-img" width="160" height="40"
+                        decoding="async">
+
                 </a>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html" class="nav-link ">Home</a></li>
                 <li><a href="about.html" class="nav-link">About us</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact us</a></li>
             </ul>
-            <!-- <a href="contact.html" class="btn-primary">Get Quote</a> -->
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation"
+                aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -293,16 +296,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-
-                    <a href="index.html" class="logo-link">
-                        <img src="assets/logo.png" alt="Growtez Logo" class="logo-img">
-                    </a>
-
+                    <div class="brand">
+                        <img src="assets/footer-logo.png" alt="growtez Logo" class="footer-logo" width="200" height="50"
+                            loading="lazy" decoding="async">
+                    </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -324,24 +326,51 @@
                             <li><a href="services.html">Digital Marketing</a></li>
                         </ul>
                     </div>
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DevCraft. All rights reserved.</p>
+                <p>&copy; 2024 growtez. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--bg-cream) 0%, #eef6f6 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(15, 138, 138, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(47, 163, 165, 0.05) 0%, transparent 50%);
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            position: relative;
+            z-index: 2;
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
         .contact-section {
             padding: 80px 0;
             background: var(--white);
