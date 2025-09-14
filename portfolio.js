@@ -17,37 +17,37 @@ function initializePortfolio() {
     initPerformanceOptimizations();
 }
 
-// Mobile Navigation Toggle
-function initMobileNavigation() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
+//  Mobile Navigation Toggle
+// function initMobileNavigation() {
+//     const hamburger = document.getElementById('hamburger');
+//     const navMenu = document.getElementById('navMenu');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+//     if (hamburger && navMenu) {
+//         hamburger.addEventListener('click', function() {
+//             hamburger.classList.toggle('active');
+//             navMenu.classList.toggle('active');
+//         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+//         // Close mobile menu when clicking on a link
+//         document.querySelectorAll('.nav-link').forEach(link => {
+//             link.addEventListener('click', () => {
+//                 hamburger.classList.remove('active');
+//                 navMenu.classList.remove('active');
+//             });
+//         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navMenu.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
+//         // Close menu when clicking outside
+//         document.addEventListener('click', function(event) {
+//             const isClickInsideNav = navMenu.contains(event.target);
+//             const isClickOnHamburger = hamburger.contains(event.target);
             
-            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-}
+//             if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+//                 hamburger.classList.remove('active');
+//                 navMenu.classList.remove('active');
+//             }
+//         });
+//     }
+// }
 
 // Smooth scrolling for anchor links
 function initSmoothScrolling() {
@@ -202,29 +202,37 @@ function initImageHandling() {
     const portfolioImages = document.querySelectorAll('.portfolio-image img');
     
     portfolioImages.forEach(img => {
-        // Add loading class initially
-        img.parentElement.classList.add('loading');
-        
-        img.addEventListener('load', function() {
-            this.parentElement.classList.remove('loading');
-            this.parentElement.classList.add('loaded');
+        // Check if image is already loaded
+        if (img.complete && img.naturalHeight !== 0) {
+            // Image is already loaded
+            img.parentElement.classList.remove('loading');
+            img.parentElement.classList.add('loaded');
+            img.style.opacity = '1';
+        } else {
+            // Add loading class for images that haven't loaded yet
+            img.parentElement.classList.add('loading');
             
-            // Fade in effect
-            this.style.opacity = '0';
-            setTimeout(() => {
-                this.style.transition = 'opacity 0.3s ease';
-                this.style.opacity = '1';
-            }, 100);
-        });
-        
-        img.addEventListener('error', function() {
-            // Fallback to icon if image fails to load
-            this.parentElement.classList.add('icon-fallback');
-            this.parentElement.classList.remove('loading');
-            this.style.display = 'none';
+            img.addEventListener('load', function() {
+                this.parentElement.classList.remove('loading');
+                this.parentElement.classList.add('loaded');
+                
+                // Fade in effect
+                this.style.opacity = '0';
+                setTimeout(() => {
+                    this.style.transition = 'opacity 0.3s ease';
+                    this.style.opacity = '1';
+                }, 100);
+            });
             
-            console.warn('Failed to load image:', this.src);
-        });
+            img.addEventListener('error', function() {
+                // Fallback to icon if image fails to load
+                this.parentElement.classList.add('icon-fallback');
+                this.parentElement.classList.remove('loading');
+                this.style.display = 'none';
+                
+                console.warn('Failed to load image:', this.src);
+            });
+        }
         
         // Lazy loading for better performance
         if ('loading' in HTMLImageElement.prototype) {

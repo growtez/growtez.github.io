@@ -40,7 +40,7 @@
 
 /* About Section */
 .about-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background: var(--white);
     position: relative;
 }
@@ -182,7 +182,7 @@
     font-size: 1.8rem;
     color: var(--white);
     box-shadow: 0 8px 20px rgba(15, 138, 138, 0.25);
-    transition: var(--transition);
+    transition: all 0.1s ease;
 }
 
 .stat-item:hover .stat-icon {
@@ -337,7 +337,7 @@
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    transition: var(--transition);
+    transition: all 0.1s ease;;
     border: 1px solid rgba(15, 138, 138, 0.1);
 }
 
@@ -360,7 +360,7 @@
     font-size: 2rem;
     color: var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: var(--transition);
+    transition: all 0.1s ease;;
 }
 
 .member-avatar img {
@@ -415,7 +415,7 @@
     justify-content: center;
     font-size: 0.9rem;
     color: var(--text-dark);
-    transition: var(--transition);
+    transition: all 0.1s ease;
 }
 
 .member-social a:hover {
@@ -471,6 +471,10 @@
 .counter-number {
     transition: all 0.3s ease;
 }
+.counter-percent::after {
+  content: "%";
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
