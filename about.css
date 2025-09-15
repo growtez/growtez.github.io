@@ -494,13 +494,13 @@
 
 @media (max-width: 768px) {
     .page-header {
-        padding: 120px 0 60px;
+        padding: 100px 0 30px;
     }
     
     .about-section,
     .values-vision,
     .team-section {
-        padding: 60px 0;
+        padding: 20px 0;
     }
     
     .about-features {
