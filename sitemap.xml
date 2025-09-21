@@ -14,7 +14,7 @@
 
     <!-- About Page -->
     <url>
-        <loc>https://growtez.com/about.html</loc>
+        <loc>https://growtez.com/about</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
     <!-- Services Page -->
     <url>
-        <loc>https://growtez.com/services.html</loc>
+        <loc>https://growtez.com/services</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
     <!-- Portfolio Page -->
     <url>
-        <loc>https://growtez.com/portfolio.html</loc>
+        <loc>https://growtez.com/portfolio</loc>
         <lastmod>2024-12-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
     <!-- Contact Page -->
     <url>
-        <loc>https://growtez.com/contact.html</loc>
+        <loc>https://growtez.com/contact</loc>
         <lastmod>2025-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -46,7 +46,7 @@
 
     <!-- Pricing Page -->
     <url>
-        <loc>https://growtez.com/pricing.html</loc>
+        <loc>https://growtez.com/pricing</loc>
         <lastmod>2025-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
