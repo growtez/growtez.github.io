@@ -626,4 +626,37 @@ window.addEventListener('unhandledrejection', function(event) {
     // You can send error reports to your analytics service here
 });
 
+// Make entire tool card clickable (desktop and mobile)
+document.addEventListener('DOMContentLoaded', function() {
+    const toolCards = document.querySelectorAll('.tool-card');
+    toolCards.forEach(card => {
+        const link = card.querySelector('.tool-cta');
+        if (!link) return;
+
+        // Improve accessibility
+        if (!card.hasAttribute('tabindex')) {
+            card.setAttribute('tabindex', '0');
+        }
+        card.setAttribute('role', 'link');
+
+        // Click anywhere on the card navigates to tool page
+        card.addEventListener('click', (e) => {
+            // If an anchor inside was clicked, let it handle navigation
+            if (e.target.closest('a')) return;
+            const href = link.getAttribute('href');
+            if (href) window.location.href = href;
+        });
+
+        // Keyboard support
+        card.addEventListener('keydown', (e) => {
+            const key = e.key || e.code;
+            if (key === 'Enter' || key === ' ' || key === 'Spacebar') {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href) window.location.href = href;
+            }
+        });
+    });
+});
+
 console.log('DevCraft JavaScript loaded successfully!');
