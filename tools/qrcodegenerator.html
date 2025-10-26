@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
+
     <style>
         * {
             margin: 0;
@@ -23,47 +24,65 @@
 
         .container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(43, 118, 118, 0.3);
-            padding: 40px;
-            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(43, 118, 118, 0.25);
+            padding: 20px;
             width: 100%;
+            max-width: 420px;
+            border: 1px solid rgba(141, 203, 200, 0.6);
         }
 
         h1 {
             color: #2B7676;
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 2em;
+            margin-bottom: 8px;
+            font-size: 1.5em;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 0.95em;
+            color: #2B7676;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            font-size: 0.9em;
         }
 
-        .input-group {
-            margin-bottom: 20px;
+        .type-switch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
         }
-
-        label {
-            display: block;
+        .type-btn {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 2px solid #8DCBC8;
+            background: #DEEAEA;
             color: #2B7676;
             font-weight: 600;
-            margin-bottom: 8px;
             font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
         }
+        .type-btn.active {
+            background: #2B7676;
+            color: #ffffff;
+            border-color: #2B7676;
+        }
+
+        .input-group { margin-bottom: 14px; }
+
+        label { display: block; color: #2B7676; font-weight: 600; margin-bottom: 8px; font-size: 0.9em; }
 
         input, select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px 14px;
             border: 2px solid #8DCBC8;
             border-radius: 10px;
             font-size: 1em;
-            transition: all 0.3s ease;
-            background: #DEEAEA;
+            transition: all 0.25s ease;
+            background: #F0F6F6;
         }
 
         input:focus, select:focus {
@@ -72,25 +91,38 @@
             background: white;
         }
 
-        .size-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
+        .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-        button {
+        /* Color input: render proper swatch */
+        input[type="color"] {
+            padding: 0;
+            height: 44px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: 8px; }
+        input[type="color"]::-moz-color-swatch { border: none; border-radius: 8px; }
+
+        .btn {
             width: 100%;
-            padding: 15px;
+            padding: 14px;
             background: #2B7676;
             color: white;
             border: none;
             border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            transition: all 0.25s ease;
         }
+        .btn.secondary {
+            background: transparent;
+            color: #2B7676;
+            border: 2px solid #2B7676;
+        }
+        .btn:hover { background: #1f5555; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(43,118,118,0.25); }
+        .btn:active { transform: translateY(0); }
 
         button:hover {
             background: #1f5555;
@@ -102,98 +134,101 @@
             transform: translateY(0);
         }
 
-        .qr-output {
-            margin-top: 30px;
-            text-align: center;
-            display: none;
-        }
+        .qr-output { margin-top: 16px; text-align: center; display: none; }
 
-        .qr-output.show {
-            display: block;
-        }
+        .qr-output.show { display: block; }
 
-        #qrcode {
-            background: #DEEAEA;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+        #qrcode { background: #DEEAEA; padding: 12px; border-radius: 12px; display: inline-block; margin-bottom: 12px; }
+        .qr-box { background: #ffffff; border-radius: 12px; padding: 12px; display: inline-block; }
 
-        .download-btn {
-            background: #8DCBC8;
-            color: #2B7676;
-            margin-top: 0;
-        }
+        .download-btn { background: #2B7676; color: #ffffff; }
 
-        .download-btn:hover {
-            background: #7ab9b6;
-        }
+        .download-btn:hover { background: #1f5555; }
 
-        .error {
-            color: #e74c3c;
-            font-size: 0.9em;
-            margin-top: 5px;
-            display: none;
-        }
+        .error { color: #e74c3c; font-size: 0.9em; margin-top: 5px; display: none; }
 
-        .error.show {
-            display: block;
-        }
+        .error.show { display: block; }
     </style>
+
 </head>
 <body>
     <div class="container">
         <h1>QR Code Generator</h1>
-        <p class="subtitle">Create QR codes for URLs, text, or any content</p>
+        <p class="subtitle">Create QR codes from links or text</p>
 
-        <div class="input-group">
-            <label for="qrText">Enter Text or URL</label>
-            <input type="text" id="qrText" placeholder="https://example.com or any text">
-            <div class="error" id="error">Please enter some text or URL</div>
+        <div class="type-switch">
+            <button class="type-btn active" id="typeLink" data-type="link">Link</button>
+            <button class="type-btn" id="typeText" data-type="text">Text</button>
         </div>
 
-        <div class="size-group">
+        <div class="input-group">
+            <label for="qrText" id="qrLabel">Insert link</label>
+            <input type="text" id="qrText" placeholder="https://example.com">
+            <div class="error" id="error">Please enter a value</div>
+        </div>
+
+        <div class="row-2">
             <div class="input-group">
-                <label for="qrSize">Size (px)</label>
+                <label for="qrSize">Size</label>
                 <select id="qrSize">
-                    <option value="128">128x128</option>
-                    <option value="256" selected>256x256</option>
-                    <option value="512">512x512</option>
-                    <option value="1024">1024x1024</option>
+                    <option value="128">128 px</option>
+                    <option value="256" selected>256 px</option>
                 </select>
             </div>
+            <div class="input-group">
+                <label for="qrFormat">Format</label>
+                <select id="qrFormat">
+                    <option value="png" selected>PNG</option>
+                    <option value="jpeg">JPG</option>
+                </select>
+            </div>
+        </div>
 
+        <div class="row-2">
             <div class="input-group">
                 <label for="qrColor">QR Color</label>
                 <input type="color" id="qrColor" value="#2B7676">
             </div>
+            <div class="input-group">
+                <label for="bgColor">Background</label>
+                <input type="color" id="bgColor" value="#ffffff">
+            </div>
         </div>
 
-        <button onclick="generateQR()">Generate QR Code</button>
+        <button class="btn" id="genBtn">Generate</button>
 
         <div class="qr-output" id="qrOutput">
-            <div id="qrcode"></div>
-            <button class="download-btn" onclick="downloadQR()">Download QR Code</button>
+            <div class="qr-box">
+                <div id="qrcode"></div>
+            </div>
+            <button class="btn download-btn" id="dlBtn">Download</button>
         </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         let qrCodeObj = null;
+        let currentType = 'link';
+
+        function normalizeInput(val) {
+            if (currentType === 'link') {
+                if (!/^https?:\/\//i.test(val)) return 'https://' + val;
+            }
+            return val;
+        }
 
         function generateQR() {
-            const text = document.getElementById('qrText').value.trim();
+            const raw = document.getElementById('qrText').value.trim();
+            const text = normalizeInput(raw);
             const size = parseInt(document.getElementById('qrSize').value);
             const color = document.getElementById('qrColor').value;
+            const bg = document.getElementById('bgColor').value;
             const error = document.getElementById('error');
             const output = document.getElementById('qrOutput');
             const qrcodeDiv = document.getElementById('qrcode');
 
-            if (!text) {
-                error.classList.add('show');
-                return;
-            }
+            if (!raw) { error.classList.add('show'); return; }
 
             error.classList.remove('show');
             qrcodeDiv.innerHTML = '';
@@ -203,7 +238,7 @@
                 width: size,
                 height: size,
                 colorDark: color,
-                colorLight: "#ffffff",
+                colorLight: bg,
                 correctLevel: QRCode.CorrectLevel.H
             });
 
@@ -213,19 +248,35 @@
         function downloadQR() {
             const canvas = document.querySelector('#qrcode canvas');
             if (canvas) {
-                const url = canvas.toDataURL('image/png');
+                const fmt = document.getElementById('qrFormat').value;
+                const mime = fmt === 'jpeg' ? 'image/jpeg' : 'image/png';
+                const url = canvas.toDataURL(mime);
                 const link = document.createElement('a');
-                link.download = 'qrcode.png';
+                link.download = 'qrcode.' + (fmt === 'jpeg' ? 'jpg' : 'png');
                 link.href = url;
                 link.click();
             }
         }
 
-        document.getElementById('qrText').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                generateQR();
-            }
+        document.getElementById('typeLink').addEventListener('click', function(){
+            currentType = 'link';
+            this.classList.add('active');
+            document.getElementById('typeText').classList.remove('active');
+            document.getElementById('qrLabel').textContent = 'Insert link';
+            document.getElementById('qrText').placeholder = 'https://example.com';
         });
+        document.getElementById('typeText').addEventListener('click', function(){
+            currentType = 'text';
+            this.classList.add('active');
+            document.getElementById('typeLink').classList.remove('active');
+            document.getElementById('qrLabel').textContent = 'Enter text';
+            document.getElementById('qrText').placeholder = 'Type your text';
+        });
+
+        document.getElementById('genBtn').addEventListener('click', generateQR);
+        document.getElementById('dlBtn').addEventListener('click', downloadQR);
+        document.getElementById('qrText').addEventListener('keypress', function(e){ if(e.key==='Enter') generateQR(); });
     </script>
+
 </body>
 </html>

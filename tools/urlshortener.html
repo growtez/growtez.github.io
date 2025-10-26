@@ -104,11 +104,12 @@
         }
 
         .result {
-            margin-top: 30px;
-            padding: 20px;
-            background: #DEEAEA;
-            border-radius: 15px;
+            margin-top: 24px;
+            padding: 16px;
+            background: #E9F2F2;
+            border-radius: 14px;
             display: none;
+            border: 1px solid rgba(141,203,200,0.6);
         }
 
         .result.show {
@@ -135,35 +136,40 @@
 
         .url-display {
             display: flex;
+            flex-direction: column;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .url-box {
             flex: 1;
-            padding: 12px;
-            background: white;
+            padding: 12px 14px;
+            background: #ffffff;
             border: 2px solid #8DCBC8;
-            border-radius: 8px;
-            word-break: break-all;
+            border-radius: 10px;
             color: #2B7676;
-            font-weight: 500;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            user-select: all;
         }
 
         .copy-btn {
-            padding: 12px 20px;
-            background: #8DCBC8;
-            color: #2B7676;
+            padding: 12px 16px;
+            background: #2B7676;
+            color: #ffffff;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            transition: all 0.25s ease;
             white-space: nowrap;
+            width: 100%;
         }
 
         .copy-btn:hover {
-            background: #7ab9b6;
+            background: #1f5555;
         }
 
         .copy-btn.copied {
@@ -175,14 +181,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .stat-item {
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 10px;
             text-align: center;
+            border: 1px solid rgba(141,203,200,0.5);
         }
 
         .stat-label {
@@ -207,6 +214,16 @@
         .error.show {
             display: block;
         }
+
+        /* Slug availability status */
+        .slug-status {
+            margin-top: 6px;
+            font-size: 0.85em;
+        }
+        .slug-status.checking { color: #666; }
+        .slug-status.available { color: #2B7676; font-weight: 600; }
+        .slug-status.taken { color: #c0392b; font-weight: 600; }
+        .slug-status.muted { color: #777; }
 
         .api-options {
             display: none;
@@ -277,6 +294,7 @@
             <label for="customSlug">Custom Slug <span class="optional-label">(Optional)</span></label>
             <input type="text" id="customSlug" placeholder="my-custom-link">
             <div class="error" id="slugError">Slug can only contain letters, numbers, hyphens and underscores</div>
+            <div class="slug-status" id="slugStatus"></div>
         </div>
 
         <button onclick="shortenURL()" id="shortenBtn">Shorten URL</button>
@@ -310,6 +328,18 @@
     <script>
         let selectedAPI = 'spoo'; // spoo.me - free, no registration required, direct redirects
         let currentShortCode = '';
+        let slugAvailability = 'unknown'; // 'unknown' | 'available' | 'taken' | 'invalid' | 'unsupported'
+
+        function updateShortenButton() {
+            const btn = document.getElementById('shortenBtn');
+            const slug = document.getElementById('customSlug').value.trim();
+            // If no slug, allow shortening
+            if (!slug) { btn.disabled = false; return; }
+            // If slug present but service is not spoo, keep disabled
+            if (selectedAPI !== 'spoo') { btn.disabled = true; return; }
+            // Enable only when available
+            btn.disabled = slugAvailability !== 'available';
+        }
 
         function selectAPI(api) {
             selectedAPI = api;
@@ -317,6 +347,21 @@
                 el.classList.remove('selected');
             });
             document.getElementById(api.replace('.', '')).classList.add('selected');
+            // Re-evaluate current slug against selected service
+            const slug = document.getElementById('customSlug').value.trim();
+            if (slug) {
+                if (selectedAPI === 'spoo') {
+                    checkSlugAvailability(slug);
+                } else {
+                    const statusEl = document.getElementById('slugStatus');
+                    statusEl.textContent = 'Custom slug is only applied for spoo.me';
+                    statusEl.className = 'slug-status muted';
+                    slugAvailability = 'unsupported';
+                    updateShortenButton();
+                }
+            } else {
+                updateShortenButton();
+            }
         }
 
         function isValidURL(string) {
@@ -348,6 +393,7 @@
             const customSlug = document.getElementById('customSlug').value.trim();
             const error = document.getElementById('error');
             const slugError = document.getElementById('slugError');
+            const slugStatus = document.getElementById('slugStatus');
             const result = document.getElementById('result');
             const btn = document.getElementById('shortenBtn');
 
@@ -454,14 +500,18 @@
             document.getElementById('result').classList.add('show');
         }
 
+        function viewAnalytics() {
+            if (currentShortCode) {
+                window.open(`https://spoo.me/stats/${currentShortCode}`, '_blank');
+            }
+        }
+
         function copyURL() {
             const shortUrl = document.getElementById('shortUrl').textContent;
             const btn = document.getElementById('copyBtn');
-
             navigator.clipboard.writeText(shortUrl).then(() => {
                 btn.textContent = 'Copied!';
                 btn.classList.add('copied');
-
                 setTimeout(() => {
                     btn.textContent = 'Copy';
                     btn.classList.remove('copied');
@@ -469,26 +519,50 @@
             });
         }
 
-        function viewAnalytics() {
-            if (currentShortCode) {
-                // Open spoo.me analytics page for the shortened URL
-                window.open(`https://spoo.me/stats/${currentShortCode}`, '_blank');
+        // Debounced slug availability checker (spoo.me only)
+        function debounce(fn, delay = 500) { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); }; }
+
+        async function checkSlugAvailability(slug) {
+            const statusEl = document.getElementById('slugStatus');
+            if (!slug) { statusEl.textContent = ''; statusEl.className = 'slug-status'; slugAvailability = 'unknown'; updateShortenButton(); return; }
+            if (!isValidSlug(slug)) { statusEl.textContent = 'Invalid slug format'; statusEl.className = 'slug-status taken'; slugAvailability = 'invalid'; updateShortenButton(); return; }
+            if (selectedAPI !== 'spoo') { statusEl.textContent = 'Custom slug is only applied for spoo.me'; statusEl.className = 'slug-status muted'; slugAvailability = 'unsupported'; updateShortenButton(); return; }
+            statusEl.textContent = 'Checking availability...'; statusEl.className = 'slug-status checking';
+            slugAvailability = 'unknown';
+            updateShortenButton();
+            try {
+                const res = await fetch(`https://spoo.me/stats/${encodeURIComponent(slug)}`, { method: 'GET' });
+                if (res.ok) { statusEl.textContent = 'Taken'; statusEl.className = 'slug-status taken'; slugAvailability = 'taken'; }
+                else if (res.status === 404) { statusEl.textContent = 'Available'; statusEl.className = 'slug-status available'; slugAvailability = 'available'; }
+                else { statusEl.textContent = 'Could not verify (will validate on submit)'; statusEl.className = 'slug-status muted'; slugAvailability = 'unknown'; }
+            } catch (e) {
+                statusEl.textContent = 'Could not verify (will validate on submit)'; statusEl.className = 'slug-status muted'; slugAvailability = 'unknown';
             }
+            updateShortenButton();
         }
 
-        document.getElementById('longUrl').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                shortenURL();
-            }
-        });
+        const debouncedSlugCheck = debounce(() => {
+            const val = document.getElementById('customSlug').value.trim();
+            checkSlugAvailability(val);
+        }, 500);
 
-        document.getElementById('longUrl').addEventListener('input', function() {
-            document.getElementById('error').classList.remove('show');
-        });
-
+        // Event listeners
+        document.getElementById('longUrl').addEventListener('keypress', function(e) { if (e.key === 'Enter') { shortenURL(); } });
+        document.getElementById('longUrl').addEventListener('input', function() { document.getElementById('error').classList.remove('show'); });
         document.getElementById('customSlug').addEventListener('input', function() {
             document.getElementById('slugError').classList.remove('show');
+            const val = this.value.trim();
+            if (val === '') {
+                slugAvailability = 'unknown';
+                updateShortenButton();
+                document.getElementById('slugStatus').textContent = '';
+                document.getElementById('slugStatus').className = 'slug-status';
+            } else {
+                debouncedSlugCheck();
+            }
         });
+        // Initialize button state on load
+        updateShortenButton();
     </script>
 </body>
 </html>
