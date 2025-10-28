@@ -1,0 +1,150 @@
+.birthday-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    min-height: calc(100vh - 300px);
+}
+
+.birthday-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.birthday-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.birthday-content .highlight {
+    color: #2196f3;
+}
+
+.birthday-message {
+    margin: 40px 0;
+    text-align: left;
+}
+
+.birthday-message .lead {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.birthday-message p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.wishes {
+    margin: 40px 0;
+}
+
+.wish-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.wish-item:hover {
+    transform: translateX(10px);
+}
+
+.wish-item i {
+    color: #ffd700;
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+.wish-item span {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.signature {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
+}
+
+.signature p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.signature h3 {
+    font-size: 1.8em;
+    color: #2196f3;
+    font-weight: 600;
+}
+
+.whatsapp-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .birthday-section {
+        padding: 40px 20px;
+    }
+
+    .birthday-content {
+        padding: 30px 20px;
+    }
+
+    .birthday-content h1 {
+        font-size: 2.5em;
+    }
+
+    .birthday-message .lead {
+        font-size: 1.3em;
+    }
+
+    .wish-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .wish-item i {
+        margin: 0 0 10px 0;
+    }
+}
