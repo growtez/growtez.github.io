@@ -1350,6 +1350,7 @@ flex-grow: 0; /* prevent paragraph from stretching and creating empty bottom spa
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
+    margin-top: auto;
 }
 
 .tool-cta i { transition: transform 0.3s ease; }
