@@ -1,6 +1,7 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const yearSpan = document.getElementById('current-year');
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
@@ -272,3 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
