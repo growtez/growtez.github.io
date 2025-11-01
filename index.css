@@ -606,7 +606,7 @@ flex-grow: 0; /* prevent paragraph from stretching and creating empty bottom spa
 
 /* When arrows are moved next to dots, lay them out inline */
 .services-slider .swiper-pagination.with-arrows {
-    display: inline-flex;
+    /* display: inline-flex; */
     align-items: center; /* vertically align arrows with dots */
     justify-content: center;
     gap: 12px;
@@ -1350,6 +1350,7 @@ flex-grow: 0; /* prevent paragraph from stretching and creating empty bottom spa
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
+    margin-top: auto;
 }
 
 .tool-cta i { transition: transform 0.3s ease; }
