@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags (will be updated by JavaScript) -->
+    <title>Blog Post | growtez</title>
+    <meta name="description" content="Read this article from growtez blog.">
+    <meta name="author" content="growtez">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="growtez">
+
+    <!-- Article Meta -->
+    <meta property="article:publisher" content="https://growtez.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <img src="assets/logo.png" alt="growtez - Web Development & Digital Solutions" class="logo-img"
+                        width="160" height="40" decoding="async">
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about" class="nav-link">About us</a></li>
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="/blog" class="nav-link active">Blog</a></li>
+                <li><a href="/pricing" class="nav-link">Pricing</a></li>
+                <li><a href="/contact" class="nav-link">Contact us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation"
+                aria-controls="navMenu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Loading State -->
+    <div id="postLoading" class="blog-loading" style="padding-top: 150px;">
+        <div class="blog-loading-spinner"></div>
+        <p>Loading article...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="postError" class="blog-error" style="display: none; margin: 150px auto 80px; max-width: 600px;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>Unable to Load Post</h3>
+        <p>Please check your connection and try again.</p>
+        <a href="/blog" class="btn-primary" style="margin-top: 1rem;">Back to Blog</a>
+    </div>
+
+    <!-- Post Content (hidden until loaded) -->
+    <div id="postContent" style="display: none;">
+        <!-- Blog Post Header -->
+        <section class="blog-post-header">
+            <div class="container">
+                <a href="/blog" class="blog-post-back">
+                    <i class="fas fa-arrow-left"></i> Back to Blog
+                </a>
+                <span id="postCategory" class="blog-post-category">Web Development</span>
+                <h1 id="postTitle">Loading...</h1>
+                <div class="blog-post-meta">
+                    <div class="blog-post-author">
+                        <img id="authorAvatar" src="assets/logo.png" alt="Author">
+                        <div class="blog-post-author-info">
+                            <strong id="authorName">Team Growtez</strong>
+                            <span id="postDate">--</span>
+                        </div>
+                    </div>
+                    <div class="blog-post-stats">
+                        <span><i class="far fa-clock"></i> <span id="postReadTime">5 min read</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Post Content -->
+        <section class="blog-post-content">
+            <div class="container">
+                <div class="blog-post-cover">
+                    <img id="postCover" src="assets/1.jpg" alt="Cover Image">
+                </div>
+
+                <article id="postBody" class="blog-post-body">
+                    <!-- Content will be injected here -->
+                </article>
+
+                <!-- Tags -->
+                <div id="postTags" class="blog-post-tags">
+                    <!-- Tags will be injected here -->
+                </div>
+
+                <!-- Share -->
+                <div class="blog-post-share">
+                    <span>Share:</span>
+                    <a id="shareTwitter" href="#" target="_blank" rel="noopener noreferrer" title="Share on Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a id="shareLinkedin" href="#" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a id="shareFacebook" href="#" target="_blank" rel="noopener noreferrer" title="Share on Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <img src="assets/footer-logo.png" alt="growtez Logo" class="footer-logo" width="200" height="50"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/100117056/" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/growteznow/" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/portfolio">Portfolio</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="/services">Web Development</a></li>
+                            <li><a href="/services">App Development</a></li>
+                            <li><a href="/services">UI/UX Design</a></li>
+                            <li><a href="/services">Digital Marketing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 growtez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module" src="blog.js"></script>
+</body>
+
+</html>
