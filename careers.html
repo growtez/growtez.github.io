@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Careers | growtez - Join Our Team</title>
+    <meta name="title" content="Careers | growtez - Join Our Team">
+    <meta name="description"
+        content="Join the growtez team! Explore job openings and internship opportunities in web development, app development, UI/UX design, and digital marketing.">
+    <meta name="keywords"
+        content="growtez careers, tech internships, web development jobs, app development internship, UI UX design jobs, digital marketing internship">
+    <meta name="author" content="growtez">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://growtez.com/careers">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://growtez.com/careers">
+    <meta property="og:title" content="Careers | growtez - Join Our Team">
+    <meta property="og:description" content="Join the growtez team! Explore job openings and internship opportunities.">
+    <meta property="og:image" content="https://growtez.com/assets/logo.png">
+    <meta property="og:site_name" content="growtez">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://growtez.com/careers">
+    <meta property="twitter:title" content="Careers | growtez - Join Our Team">
+    <meta property="twitter:description"
+        content="Join the growtez team! Explore job openings and internship opportunities.">
+    <meta property="twitter:image" content="https://growtez.com/assets/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .careers-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            background: var(--bg-light);
+        }
+
+        .no-openings {
+            text-align: center;
+            padding: 60px 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .no-openings i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .no-openings h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .no-openings p {
+            color: var(--text-light);
+        }
+
+        /* Internships Section */
+        .internships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .internship-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .internship-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .internship-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .internship-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .internship-meta i {
+            color: var(--primary-color);
+        }
+
+        .internship-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .internship-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Application Form */
+        .application-form-section {
+            background: linear-gradient(135deg, rgba(15, 138, 138, 0.05) 0%, rgba(47, 163, 165, 0.1) 100%);
+            padding: 60px 0;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-container>p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .perks-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .perk-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--bg-light);
+        }
+
+        .perk-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .perk-card h4 {
+            margin-bottom: 10px;
+        }
+
+        .perk-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <img src="assets/logo.png" alt="growtez - Web Development & Digital Solutions" class="logo-img"
+                        width="160" height="40" decoding="async">
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/about" class="nav-link">About us</a></li>
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/pricing" class="nav-link">Pricing</a></li>
+                <li><a href="/careers" class="nav-link active">Careers</a></li>
+                <li><a href="/contact" class="nav-link">Contact us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation"
+                aria-controls="navMenu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Join Our <span class="highlight">Team</span></h1>
+            <p>Build your career with growtez - where innovation meets opportunity</p>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="careers-section jobs-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Job <span class="highlight">Openings</span></h2>
+                <p>Full-time positions at growtez</p>
+            </div>
+            <div class="no-openings">
+                <i class="fas fa-briefcase"></i>
+                <h3>No Current Openings</h3>
+                <p>We don't have any full-time positions available right now.<br>Check back soon or follow us on social
+                    media for updates!</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Why Join Us / Perks -->
+    <section class="perks-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join <span class="highlight">As Intern</span></h2>
+                <p>Benefits of interning at growtez</p>
+            </div>
+            <div class="perks-grid">
+                <div class="perk-card">
+                    <i class="fas fa-laptop-house"></i>
+                    <h4>Remote Work</h4>
+                    <p>Work from anywhere with flexible hours</p>
+                </div>
+                <div class="perk-card">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Certificate</h4>
+                    <p>Get an official internship certificate</p>
+                </div>
+                <div class="perk-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>Real Projects</h4>
+                    <p>Work on actual client projects</p>
+                </div>
+                <div class="perk-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Mentorship</h4>
+                    <p>Learn from experienced professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form-section" id="apply">
+        <div class="container">
+            <div class="form-container">
+                <h2>Apply for <span class="highlight">Internship</span></h2>
+                <p>Fill out the form below and we'll get back to you within 48 hours</p>
+
+                <form id="internshipForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position Applying For *</label>
+                            <select id="position" name="position" required>
+                                <option value="">Select a position</option>
+                                <option value="Web Development Intern">Web Development Intern</option>
+                                <option value="App Development Intern">App Development Intern</option>
+                                <option value="UI/UX Design Intern">UI/UX Design Intern</option>
+                                <option value="Digital Marketing Intern">Digital Marketing Intern</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile</label>
+                            <input type="url" id="linkedin" name="linkedin"
+                                placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio / GitHub URL</label>
+                            <input type="url" id="portfolio" name="portfolio"
+                                placeholder="https://github.com/yourusername">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume">Resume/CV Link *</label>
+                        <input type="url" id="resume" name="resume" required
+                            placeholder="Google Drive / Dropbox link to your resume">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Why do you want to join growtez? *</label>
+                        <textarea id="message" name="message" required
+                            placeholder="Tell us about yourself, your skills, and why you want to intern with us..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </form>
+
+                <!-- EmailJS SDK -->
+                <script type="text/javascript"
+                    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+                <script type="text/javascript">
+                    (function () {
+                        emailjs.init("n9qbCGgh6vzQP4ukn");
+                    })();
+
+                    document.getElementById("internshipForm").addEventListener("submit", function (e) {
+                        e.preventDefault();
+
+                        const btn = this.querySelector('button[type="submit"]');
+                        const originalText = btn.innerHTML;
+                        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                        btn.disabled = true;
+
+                        emailjs.sendForm("service_pxoj1uq", "template_k50optp", this)
+                            .then(() => {
+                                alert("Thank you for applying! We'll review your application and get back to you within 48 hours.");
+                                this.reset();
+                                btn.innerHTML = originalText;
+                                btn.disabled = false;
+                            }, (err) => {
+                                alert("Application not sent. Please try again later or email us directly at contact@growtez.com");
+                                console.error(err);
+                                btn.innerHTML = originalText;
+                                btn.disabled = false;
+                            });
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="growtez" class="footer-logo" width="160" height="40">
+                    <p>Building digital solutions that drive growth and transform businesses.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/100117056/" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/growteznow/" target="_blank" rel="noopener noreferrer"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/portfolio">Portfolio</a></li>
+                            <li><a href="/careers">Careers</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="/services">Web Development</a></li>
+                            <li><a href="/services">App Development</a></li>
+                            <li><a href="/services">UI/UX Design</a></li>
+                            <li><a href="/services">Digital Marketing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> growtez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
