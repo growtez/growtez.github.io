@@ -127,10 +127,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Close menu when clicking on a link
+        // Close menu when clicking on a link (but not dropdown toggle)
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                // Don't close menu if clicking dropdown toggle
+                if (link.classList.contains('nav-dropdown-toggle')) {
+                    return;
+                }
                 setMenuState(false);
             });
         });
