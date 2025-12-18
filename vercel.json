@@ -1,0 +1,31 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/home", "destination": "/" },
+    { "source": "/index", "destination": "/" },
+    { "source": "/about-us", "destination": "/about" },
+    { "source": "/contact-us", "destination": "/contact" },
+    { "source": "/service", "destination": "/services" },
+    { "source": "/price", "destination": "/pricing" },
+    { "source": "/prices", "destination": "/pricing" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+      ]
+    },
+    {
+      "source": "/(.*).(css|js|png|jpg|jpeg|gif|ico|svg)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

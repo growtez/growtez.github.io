@@ -175,6 +175,15 @@ function renderBlogPost(post) {
         metaDesc.setAttribute('content', post.excerpt);
     }
 
+    // Update Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://growtez.com/blog-post?id=${post.id}`);
+
     // Update header elements
     const categoryEl = document.getElementById('postCategory');
     const titleEl = document.getElementById('postTitle');

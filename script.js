@@ -1,5 +1,5 @@
 // Services Slider (Swiper.js)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Wait for all elements to be loaded
     setTimeout(() => {
         const servicesSlider = document.querySelector('.services-slider');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     onlyInViewport: true,
                 },
                 on: {
-                    init: function() {
+                    init: function () {
                         console.log('Services Swiper initialized successfully', { slidesCount });
                         // Move nav arrows next to pagination dots
                         try {
@@ -81,18 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Ensure Swiper recalculates sizes once images/fonts are loaded
             window.addEventListener('load', () => {
-                try { swiper.update(); } catch (e) {}
+                try { swiper.update(); } catch (e) { }
             });
 
             // Update on container resize
             if (window.ResizeObserver) {
                 const ro = new ResizeObserver(() => {
-                    try { swiper.update(); } catch (e) {}
+                    try { swiper.update(); } catch (e) { }
                 });
                 ro.observe(servicesSlider);
             } else {
                 window.addEventListener('resize', () => {
-                    try { swiper.update(); } catch (e) {}
+                    try { swiper.update(); } catch (e) { }
                 });
             }
         }
@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (hamburger && navMenu) {
         const setMenuState = (open) => {
             hamburger.classList.toggle('active', open);
@@ -112,13 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Click toggle
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             const isOpen = hamburger.classList.contains('active');
             setMenuState(!isOpen);
         });
 
         // Keyboard accessibility: Enter/Space toggle
-        hamburger.addEventListener('keydown', function(e) {
+        hamburger.addEventListener('keydown', function (e) {
             const key = e.key || e.code;
             if (key === 'Enter' || key === ' ' || key === 'Spacebar') {
                 e.preventDefault();
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
                 setMenuState(false);
             }
@@ -159,7 +159,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Header Scroll Effect
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
     if (header) {
         if (window.scrollY > 100) {
@@ -178,7 +178,7 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-in');
@@ -187,7 +187,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe elements for animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const animateElements = document.querySelectorAll('.service-card, .testimonial-card, .portfolio-item, .blog-card, .team-member');
     animateElements.forEach(el => {
         observer.observe(el);
@@ -222,19 +222,19 @@ document.head.appendChild(style);
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
-    
+
     requiredFields.forEach(field => {
         const value = field.value.trim();
         const errorElement = field.parentNode.querySelector('.error-message');
-        
+
         // Remove existing error message
         if (errorElement) {
             errorElement.remove();
         }
-        
+
         // Remove error styling
         field.classList.remove('error');
-        
+
         if (!value) {
             isValid = false;
             field.classList.add('error');
@@ -251,7 +251,7 @@ function validateForm(form) {
             field.parentNode.appendChild(error);
         }
     });
-    
+
     return isValid;
 }
 
@@ -261,25 +261,25 @@ function isValidEmail(email) {
 }
 
 // Contact Form Submission
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (validateForm(this)) {
                 // Show loading state
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
-                
+
                 // Simulate form submission (replace with actual submission logic)
                 setTimeout(() => {
                     // Show success message
                     showNotification('Thank you! Your message has been sent successfully.', 'success');
                     this.reset();
-                    
+
                     // Reset button
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
@@ -299,9 +299,9 @@ function showNotification(message, type = 'info') {
             <button class="notification-close">&times;</button>
         </div>
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Add notification styles if not already added
     if (!document.querySelector('#notification-styles')) {
         const notificationStyles = document.createElement('style');
@@ -375,17 +375,17 @@ function showNotification(message, type = 'info') {
         `;
         document.head.appendChild(notificationStyles);
     }
-    
+
     // Show notification
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
-    
+
     // Auto hide after 5 seconds
     setTimeout(() => {
         hideNotification(notification);
     }, 5000);
-    
+
     // Close button functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
@@ -407,11 +407,11 @@ function animateCounter(element, target) {
     const start = 0;
     const increment = target / 100;
     let current = start;
-    
+
     const timer = setInterval(() => {
         current += increment;
         element.textContent = Math.floor(current);
-        
+
         if (current >= target) {
             element.textContent = target;
             clearInterval(timer);
@@ -420,10 +420,10 @@ function animateCounter(element, target) {
 }
 
 // Initialize counters when they come into view
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter-number');
-    
-    const counterObserver = new IntersectionObserver(function(entries) {
+
+    const counterObserver = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                 const target = parseInt(entry.target.getAttribute('data-target'));
@@ -432,29 +432,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, { threshold: 0.5 });
-    
+
     counters.forEach(counter => {
         counterObserver.observe(counter);
     });
 });
 
 // Portfolio Filter
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const filterButtons = document.querySelectorAll('.portfolio-filter');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
-    
+
     filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
-            
+
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            
+
             // Filter items
             portfolioItems.forEach(item => {
                 const categories = item.getAttribute('data-category').split(' ');
-                
+
                 if (filter === 'all' || categories.includes(filter)) {
                     item.style.display = 'block';
                     item.style.animation = 'fadeIn 0.5s ease';
@@ -477,7 +477,7 @@ fadeInStyle.textContent = `
 document.head.appendChild(fadeInStyle);
 
 // Back to Top Button
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Create back to top button
     const backToTop = document.createElement('button');
     backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
@@ -501,11 +501,11 @@ document.addEventListener('DOMContentLoaded', function() {
         transform: translateY(20px);
         z-index: 1000;
     `;
-    
+
     document.body.appendChild(backToTop);
-    
+
     // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 300) {
             backToTop.style.opacity = '1';
             backToTop.style.visibility = 'visible';
@@ -516,29 +516,29 @@ document.addEventListener('DOMContentLoaded', function() {
             backToTop.style.transform = 'translateY(20px)';
         }
     });
-    
+
     // Scroll to top functionality
-    backToTop.addEventListener('click', function() {
+    backToTop.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    
+
     // Hover effect
-    backToTop.addEventListener('mouseenter', function() {
+    backToTop.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-5px) scale(1.1)';
         this.style.boxShadow = 'none';
     });
-    
-    backToTop.addEventListener('mouseleave', function() {
+
+    backToTop.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
         this.style.boxShadow = 'none';
     });
 });
 
 // Hero Image Slider
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.hero-slider .slide');
     if (slides.length > 0) {
         let currentSlide = 0;
@@ -616,18 +616,18 @@ document.querySelectorAll(".faq-question").forEach(question => {
 } */
 
 // Error Handling
-window.addEventListener('error', function(event) {
+window.addEventListener('error', function (event) {
     console.error('JavaScript error:', event.error);
     // You can send error reports to your analytics service here
 });
 
-window.addEventListener('unhandledrejection', function(event) {
+window.addEventListener('unhandledrejection', function (event) {
     console.error('Unhandled promise rejection:', event.reason);
     // You can send error reports to your analytics service here
 });
 
 // Make entire tool card clickable (desktop and mobile)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const toolCards = document.querySelectorAll('.tool-card');
     toolCards.forEach(card => {
         const link = card.querySelector('.tool-cta');
@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();

@@ -52,4 +52,20 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Blog Page -->
+    <url>
+        <loc>https://growtez.com/blog</loc>
+        <lastmod>2025-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Careers Page -->
+    <url>
+        <loc>https://growtez.com/careers</loc>
+        <lastmod>2025-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>

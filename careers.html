@@ -433,7 +433,7 @@
                     </button>
                 </form>
 
-                <!-- EmailJS SDK -->
+                <!-- EmailJS SDK (for auto-reply only) -->
                 <script type="text/javascript"
                     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
                 <script type="text/javascript">
@@ -441,7 +441,10 @@
                         emailjs.init("n9qbCGgh6vzQP4ukn");
                     })();
 
-                    document.getElementById("internshipForm").addEventListener("submit", function (e) {
+                    // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
+                    const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+                    document.getElementById("internshipForm").addEventListener("submit", async function (e) {
                         e.preventDefault();
 
                         const btn = this.querySelector('button[type="submit"]');
@@ -449,18 +452,44 @@
                         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
                         btn.disabled = true;
 
-                        emailjs.sendForm("service_pxoj1uq", "template_k50optp", this)
-                            .then(() => {
-                                alert("Thank you for applying! We'll review your application and get back to you within 48 hours.");
-                                this.reset();
-                                btn.innerHTML = originalText;
-                                btn.disabled = false;
-                            }, (err) => {
-                                alert("Application not sent. Please try again later or email us directly at contact@growtez.com");
-                                console.error(err);
-                                btn.innerHTML = originalText;
-                                btn.disabled = false;
+                        // Collect form data
+                        const formData = {
+                            name: this.querySelector('#name').value,
+                            email: this.querySelector('#email').value,
+                            phone: this.querySelector('#phone').value,
+                            position: this.querySelector('#position').value,
+                            linkedin: this.querySelector('#linkedin').value,
+                            portfolio: this.querySelector('#portfolio').value,
+                            resume: this.querySelector('#resume').value,
+                            message: this.querySelector('#message').value
+                        };
+
+                        try {
+                            // 1. Save to Google Sheet
+                            await fetch(GOOGLE_SHEET_URL, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(formData)
                             });
+
+                            // 2. Send auto-reply email to applicant
+                            await emailjs.send("service_pxoj1uq", "template_intern_reply", {
+                                email: formData.email,
+                                name: formData.name,
+                                position: formData.position
+                            });
+
+                            alert("Thank you for applying! We've received your application and will contact you soon.");
+                            this.reset();
+                        } catch (err) {
+                            console.error(err);
+                            alert("Application submitted! (Auto-reply may have failed, but we received your application)");
+                            this.reset();
+                        }
+
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
                     });
                 </script>
             </div>
