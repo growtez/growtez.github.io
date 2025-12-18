@@ -236,10 +236,6 @@ p {
     transition: var(--transition);
 }
 
-.nav-dropdown:hover .nav-dropdown-toggle i {
-    transform: rotate(180deg);
-}
-
 .nav-dropdown-menu {
     position: absolute;
     top: 100%;
@@ -257,10 +253,15 @@ p {
     list-style: none;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu {
+/* Click-based dropdown (works on all devices) */
+.nav-dropdown.dropdown-open .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.nav-dropdown.dropdown-open .nav-dropdown-toggle i {
+    transform: rotate(180deg);
 }
 
 .nav-dropdown-menu li a {
@@ -1451,45 +1452,6 @@ p {
 
     .hamburger.active span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    /* Mobile Dropdown in Hamburger Menu */
-    .nav-dropdown {
-        width: 100%;
-    }
-
-    .nav-dropdown-toggle {
-        width: 100%;
-        justify-content: space-between;
-        padding: 0.5rem 0;
-    }
-
-    .nav-dropdown-menu {
-        position: static;
-        opacity: 0;
-        visibility: hidden;
-        max-height: 0;
-        overflow: hidden;
-        transform: none;
-        box-shadow: none;
-        background: var(--bg-light);
-        margin: 0;
-        padding: 0;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown.dropdown-open .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        max-height: 200px;
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-    }
-
-    .nav-dropdown-menu li a {
-        padding: 0.6rem 1rem;
     }
 
     .hero-content,
