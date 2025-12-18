@@ -277,6 +277,30 @@
             color: var(--text-light);
             font-size: 0.95rem;
         }
+
+        /* Mobile 2x2 grid for perks */
+        @media (max-width: 768px) {
+            .perks-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .perk-card {
+                padding: 20px 15px;
+            }
+
+            .perk-card i {
+                font-size: 2rem;
+            }
+
+            .perk-card h4 {
+                font-size: 1rem;
+            }
+
+            .perk-card p {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 
@@ -292,13 +316,18 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/about" class="nav-link">About us</a></li>
                 <li><a href="/services" class="nav-link">Services</a></li>
                 <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="/blog" class="nav-link">Blog</a></li>
                 <li><a href="/pricing" class="nav-link">Pricing</a></li>
-                <li><a href="/careers" class="nav-link active">Careers</a></li>
-                <li><a href="/contact" class="nav-link">Contact us</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li class="nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle active">More <i class="fas fa-chevron-down"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation"
                 aria-controls="navMenu" aria-expanded="false">
@@ -314,11 +343,38 @@
         <div class="container">
             <h1>Join Our <span class="highlight">Team</span></h1>
             <p>Build your career with growtez - where innovation meets opportunity</p>
+
+            <!-- Section Navigation Cards -->
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                <a href="#internships"
+                    style="display: flex; align-items: center; gap: 12px; background: white; padding: 20px 30px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)'">
+                    <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <div style="text-align: left;">
+                        <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-dark);">Join as Intern</h3>
+                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: var(--text-light);">Learn & grow with us
+                        </p>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color: var(--primary-color); margin-left: 10px;"></i>
+                </a>
+                <a href="#jobs"
+                    style="display: flex; align-items: center; gap: 12px; background: white; padding: 20px 30px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.15)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.1)'">
+                    <i class="fas fa-briefcase" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <div style="text-align: left;">
+                        <h3 style="margin: 0; font-size: 1.2rem; color: var(--text-dark);">Job Openings</h3>
+                        <p style="margin: 5px 0 0; font-size: 0.9rem; color: var(--text-light);">Full-time positions</p>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color: var(--primary-color); margin-left: 10px;"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Jobs Section -->
-    <section class="careers-section jobs-section">
+    <section id="jobs" class="careers-section jobs-section">
         <div class="container">
             <div class="section-title">
                 <h2>Job <span class="highlight">Openings</span></h2>
@@ -336,7 +392,7 @@
 
 
     <!-- Why Join Us / Perks -->
-    <section class="perks-section">
+    <section id="internships" class="perks-section">
         <div class="container">
             <div class="section-title">
                 <h2>Join <span class="highlight">As Intern</span></h2>
@@ -442,7 +498,7 @@
                     })();
 
                     // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
-                    const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+                    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyH5qX-13bHwtmerTnw5fMdBd9Y-G6GmsoCpTadFJs8ntaAu8z6fGEpnw4kpmb7mKyasw/exec';
 
                     document.getElementById("internshipForm").addEventListener("submit", async function (e) {
                         e.preventDefault();
