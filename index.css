@@ -337,6 +337,17 @@ p {
     color: var(--primary-color);
 }
 
+/* Click-based dropdown for touch devices */
+.nav-dropdown.dropdown-open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown.dropdown-open .nav-dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
