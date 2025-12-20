@@ -527,7 +527,40 @@
     .blog-grid {
         grid-template-columns: 1fr;
     }
-
+.nav-link, 
+    .nav-dropdown-toggle {
+        /* This stops the link from stretching full width */
+        width: fit-content;
+        
+        /* This ensures the text/icon stays aligned nicely */
+        display: inline-flex; 
+        align-items: center;
+        gap: 5px; /* Adds space between text and arrow icon */
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-dropdown-menu {
+        /* CHANGED: Fits the full width of the mobile menu container */
+        width: 60%; 
+        
+        /* ADDED: Resets desktop positioning so it pushes content down instead of floating */
+        position: static; 
+        
+        /* ADDED: Removes desktop styles for a cleaner mobile look */
+        box-shadow: none;
+        transform: none;
+        background: transparent;
+        padding-top: 10px; /* Adds a little breathing room */
+        
+        /* Optional: Indent slightly to show hierarchy */
+        /* padding-left: 20px;  */
+    }
+    
+    /* Optional: Ensure list items inside take full width */
+    .nav-dropdown-menu li {
+        width: 100%;
+    }
     .blog-card-image {
         height: 200px;
     }
