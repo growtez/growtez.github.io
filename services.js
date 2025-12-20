@@ -7,12 +7,12 @@ if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
-        
+
         // Update aria-expanded for accessibility
         const isExpanded = navMenu.classList.contains('active');
         hamburger.setAttribute('aria-expanded', isExpanded);
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
@@ -20,17 +20,52 @@ if (hamburger && navMenu) {
             hamburger.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
         }
+        
+        // NEW: Close dropdowns when clicking outside
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('dropdown-open'));
+        }
     });
-    
+
     // Close menu when clicking on nav links
     navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => { // Added 'e' parameter
+            
+            // CRITICAL CHANGE: Don't close menu if clicking the "More" dropdown toggle
+            if (link.classList.contains('nav-dropdown-toggle')) {
+                return; 
+            }
+
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
         });
     });
 }
+
+// ==========================================
+// NEW: Dropdown Logic Integrated Here
+// ==========================================
+const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+        e.preventDefault(); // Stop link navigation
+        e.stopPropagation(); // Stop event from closing the menu immediately
+
+        const dropdown = this.closest('.nav-dropdown');
+        
+        // Close other open dropdowns (Accordion behavior)
+        document.querySelectorAll('.nav-dropdown').forEach(d => {
+            if (d !== dropdown) d.classList.remove('dropdown-open');
+        });
+
+        // Toggle the current dropdown
+        dropdown.classList.toggle('dropdown-open');
+    });
+});
+// ==========================================
+
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -52,20 +87,20 @@ let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (scrollTop > 100) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
-    
+
     // Hide/show header on scroll
     if (scrollTop > lastScrollTop && scrollTop > 200) {
         header.style.transform = 'translateY(-100%)';
     } else {
         header.style.transform = 'translateY(0)';
     }
-    
+
     lastScrollTop = scrollTop;
 });
 
