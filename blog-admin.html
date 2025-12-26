@@ -458,9 +458,20 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="coverImageFile">Cover Image</label>
+                            <label>Cover Image</label>
+                            <!-- URL Input (Preferred for No Billing) -->
+                            <input type="url" id="coverImageUrlInput" placeholder="https://example.com/image.jpg"
+                                style="margin-bottom: 5px;">
+                            <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">
+                                Paste an image URL (e.g. from Unsplash, Imgur) OR upload image less than .
+                            </p>
+
+                            <!-- File Input (Base64 Fallback) -->
                             <input type="file" id="coverImageFile" accept="image/*">
+
+                            <!-- Hidden field to store final value -->
                             <input type="hidden" id="coverImageUrl">
+
                             <div id="imagePreview" style="margin-top: 10px; display: none;">
                                 <img src="" alt="Preview" style="max-height: 150px; border-radius: 8px;">
                             </div>
@@ -519,7 +530,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
         import { getFirestore, collection, getDocs, doc, getDoc, setDoc, addDoc, deleteDoc, query, orderBy, Timestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
         // Firebase Configuration
         const firebaseConfig = {
@@ -536,7 +546,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const storage = getStorage(app);
         const provider = new GoogleAuthProvider();
 
         // Allowed admin emails
@@ -570,46 +579,52 @@
         const postForm = document.getElementById('postForm');
         const messageEl = document.getElementById('message');
 
-        // Image Upload
+        // Image Handling
         const coverImageFile = document.getElementById('coverImageFile');
-        const coverImageUrl = document.getElementById('coverImageUrl');
+        const coverImageUrlInput = document.getElementById('coverImageUrlInput'); // URL Input
+        const coverImageUrl = document.getElementById('coverImageUrl'); // Hidden field
         const imagePreview = document.getElementById('imagePreview');
 
+        // Handle URL Input Change
+        coverImageUrlInput.addEventListener('input', (e) => {
+            const url = e.target.value;
+            if (url) {
+                coverImageUrl.value = url;
+                imagePreview.style.display = 'block';
+                imagePreview.querySelector('img').src = url;
+                coverImageFile.value = ''; // Clear file input
+            } else {
+                imagePreview.style.display = 'none';
+                coverImageUrl.value = '';
+            }
+        });
+
+        // Handle File Input (Convert to Base64 - limits size to ~500KB)
         coverImageFile.addEventListener('change', async (e) => {
             const file = e.target.files[0];
             if (!file) return;
 
+            // Size check (max 500KB for Base64 safety)
+            if (file.size > 500 * 1024) {
+                alert("File too large for direct upload (Limit: 500KB). Please use an Image URL instead.");
+                e.target.value = '';
+                return;
+            }
+
             try {
-                // Show loading
-                const saveBtn = document.querySelector('#postForm button[type="submit"]');
-                const originalText = saveBtn.innerHTML;
-                saveBtn.disabled = true;
-                saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading Image...';
-
-                // Create storage ref
-                const timestamp = Date.now();
-                const storageRef = ref(storage, `blog-covers/${timestamp}_${file.name}`);
-
-                // Upload file
-                await uploadBytes(storageRef, file);
-
-                // Get download URL
-                const url = await getDownloadURL(storageRef);
-
-                // Update hidden input and preview
-                coverImageUrl.value = url;
-                imagePreview.style.display = 'block';
-                imagePreview.querySelector('img').src = url;
-
-                showMessage('Image uploaded successfully!', 'success');
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64String = reader.result;
+                    coverImageUrl.value = base64String;
+                    imagePreview.style.display = 'block';
+                    imagePreview.querySelector('img').src = base64String;
+                    coverImageUrlInput.value = ''; // Clear URL input
+                    showMessage('Image processed successfully!', 'success');
+                };
+                reader.readAsDataURL(file);
             } catch (error) {
-                console.error('Upload failed:', error);
-                showMessage('Image upload failed: ' + error.message, 'error');
-            } finally {
-                // Restore button
-                const saveBtn = document.querySelector('#postForm button[type="submit"]');
-                saveBtn.disabled = false;
-                saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Post';
+                console.error('File processing failed:', error);
+                showMessage('Image processing failed', 'error');
             }
         });
 
